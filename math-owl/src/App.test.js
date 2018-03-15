@@ -2,18 +2,23 @@ import App from './App';
 import React from 'react';
 import { shallow } from 'enzyme';
 
+import Header from './components/header';
+
 describe('App', () => {
-  it('should exist', () => {
-    const wrapper = shallow(<App />)
-    expect(wrapper).toBeDefined()
-  });
-  
-  it('should have the `title` "Welcome to React"', () => {
-    const wrapper = shallow(
+
+  let wrapper;
+
+  beforeEach(() => {
+    wrapper = shallow(
       <App />
     );
-    expect(
-      wrapper.containsMatchingElement(<h1>Welcome to React</h1>)
-    ).toBe(true);
+  });
+  
+  it('should exist', () => {
+    expect(wrapper).toBeDefined()
+  });
+
+  it('renders header', () => {
+    expect(wrapper.find(Header));
   });
 });
