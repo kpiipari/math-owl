@@ -3,6 +3,7 @@ import React from 'react';
 import { shallow } from 'enzyme';
 
 import Header from './components/header';
+import SubHeader from './components/sub-header';
 
 describe('App', () => {
 
@@ -20,5 +21,9 @@ describe('App', () => {
 
   it('renders header', () => {
     expect(wrapper.find(Header));
+  });
+
+  it('renders sub-header', () => {
+    expect(wrapper.find(SubHeader));
   });
 });
