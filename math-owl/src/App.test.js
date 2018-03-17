@@ -4,6 +4,7 @@ import { shallow } from 'enzyme';
 
 import Header from './components/header';
 import SubHeader from './components/sub-header';
+import Game from './components/game';
 
 describe('App', () => {
 
@@ -25,5 +26,9 @@ describe('App', () => {
 
   it('renders sub-header', () => {
     expect(wrapper.find(SubHeader));
+  });
+
+  it('renders game', () => {
+    expect(wrapper.find(Game));
   });
 });
