@@ -1,5 +1,5 @@
 import React from 'react';
-import Game from './game';
+import GameType from './game-type';
 import Level from './level';
 
 import { Navbar, Nav, NavItem } from 'react-bootstrap';
@@ -11,7 +11,7 @@ class SubHeader extends React.Component {
                 <Navbar fluid>
                     <Nav>
                         <NavItem>
-                            <Game />
+                            <GameType />
                         </NavItem>
                         <NavItem>
                             <Level />

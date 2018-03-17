@@ -1,5 +1,5 @@
 import SubHeader from './sub-header';
-import Game from './game';
+import GameType from './game-type';
 import Level from './level';
 import React from 'react';
 import { shallow } from 'enzyme';
@@ -22,7 +22,7 @@ describe('SubHeader', () => {
   it('should render Game component as a `navitem`', () => {
     expect(wrapper.containsMatchingElement(
         <NavItem>
-            <Game />
+            <GameType />
         </NavItem>
        )).toBe(true);
   });
