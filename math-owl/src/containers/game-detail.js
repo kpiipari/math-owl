@@ -1,7 +1,6 @@
 import React from 'react';
-import { Row, Grid, Form, FormGroup, ControlLabel, FormControl, Col, Button } from 'react-bootstrap';
-import FaStar from 'react-icons/lib/fa/star';
-import FaStarO from 'react-icons/lib/fa/star-o';
+import { Form, FormGroup, ControlLabel, FormControl, Col, Button } from 'react-bootstrap';
+import RoundCount from './round-count';
 
 class GameDetail extends React.Component {
     render() {
@@ -18,8 +17,7 @@ class GameDetail extends React.Component {
                         <Button type="submit" className="btn btn-md">Submit</Button>
                     </Col>
                 </FormGroup>
-                <FaStar size={42}></FaStar>
-                <FaStarO size={42}></FaStarO>
+                <RoundCount/>
             </Form>
             
             
