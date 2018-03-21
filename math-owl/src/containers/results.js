@@ -1,5 +1,6 @@
 import React from 'react';
 import { Row, Grid, Col, Button } from 'react-bootstrap';
+import EndGame from './end-game';
 
 class Results extends React.Component {
     render() {
