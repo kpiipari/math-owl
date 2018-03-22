@@ -10,7 +10,7 @@ class Game extends React.Component {
             /*<GameStart />*/
             /*<GameDetail />*/
             <div>
-                <Results />
+                <Results score="8" time="10 sec" />
                 <EndGame />
             </div>
         );
