@@ -19,8 +19,6 @@ class GameDetail extends React.Component {
                 </FormGroup>
                 <RoundCount/>
             </Form>
-            
-            
         );
     }
 }

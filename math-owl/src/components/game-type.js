@@ -3,7 +3,7 @@ import React from 'react';
 class GameType extends React.Component {
     render() {
         return (
-            <div>Addition</div>
+            <div>{this.props.game}</div>
         );
     }
 }

@@ -11,10 +11,10 @@ class SubHeader extends React.Component {
                 <Navbar fluid>
                     <Nav>
                         <NavItem>
-                            <GameType />
+                            <GameType game="Addition"/>
                         </NavItem>
                         <NavItem>
-                            <Level />
+                            <Level level="1"/>
                         </NavItem>
                     </Nav>
                 </Navbar>

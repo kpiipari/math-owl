@@ -3,7 +3,7 @@ import React from 'react';
 class Level extends React.Component {
     render() {
         return (
-            <div>Level 1</div>
+            <div>Level {this.props.level}</div>
         );
     }
 }
