@@ -1,16 +1,14 @@
 import React, { Component } from 'react';
 import './App.css';
-import Header from './components/header';
-import SubHeader from './components/sub-header';
-import Game from './components/game';
+
+import GameDashboard from './components/game-dashboard';
 
 class App extends Component {
   render() {
     return (
       <div>
-        <Header />
-        <SubHeader />
-        <Game />
+        
+        <GameDashboard />
       </div>      
     );
   }
