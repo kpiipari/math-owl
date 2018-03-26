@@ -16,10 +16,10 @@ class SubHeader extends React.Component {
                 <Navbar fluid>
                     <Nav>
                         <NavItem>
-                            <GameType game="Addition"/>
+                            <GameType game={this.props.game}/>
                         </NavItem>
                         <NavItem>
-                            <Level level="1"/>
+                            <Level level={this.props.level}/>
                         </NavItem>
                     </Nav>
                 </Navbar>
@@ -29,7 +29,7 @@ class SubHeader extends React.Component {
                 <Navbar fluid>
                     <Nav>
                         <NavItem>
-                            <Message message="Welcome to MathOwl"/>
+                            <Message message="Welcome to Math Owl"/>
                         </NavItem>
                     </Nav>
                 </Navbar>
