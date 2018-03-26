@@ -1,13 +1,18 @@
 import React from 'react';
 import GameType from './game-type';
 import Level from './level';
+import Message from './message';
 
 import { Navbar, Nav, NavItem } from 'react-bootstrap';
 
 class SubHeader extends React.Component {
+    state = {
+        gameMode: false,
+    };
+
     render() {
-        return (
-            <div>
+        if (this.state.gameMode) {
+            return (
                 <Navbar fluid>
                     <Nav>
                         <NavItem>
@@ -18,8 +23,18 @@ class SubHeader extends React.Component {
                         </NavItem>
                     </Nav>
                 </Navbar>
-            </div>
-        );
+            );
+        } else {
+            return (
+                <Navbar fluid>
+                    <Nav>
+                        <NavItem>
+                            <Message message="Welcome to MathOwl"/>
+                        </NavItem>
+                    </Nav>
+                </Navbar>
+            );
+        }
     }
 }
 
