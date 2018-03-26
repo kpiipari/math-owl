@@ -6,12 +6,9 @@ import Message from './message';
 import { Navbar, Nav, NavItem } from 'react-bootstrap';
 
 class SubHeader extends React.Component {
-    state = {
-        gameMode: false,
-    };
-
+   
     render() {
-        if (this.state.gameMode) {
+        if (this.props.gameMode) {
             return (
                 <Navbar fluid>
                     <Nav>
