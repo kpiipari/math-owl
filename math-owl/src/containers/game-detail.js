@@ -8,7 +8,7 @@ class GameDetail extends React.Component {
             <Form horizontal>
                 <FormGroup controlId="formHorizontalEmail" className="form-group-lg row">
                     <Col componentClass={ControlLabel} sm={4}>
-                        2 + 2 =
+                        {this.props.var1} + {this.props.var2} =
                     </Col>
                     <Col sm={2}>
                         <FormControl type="answer" placeholder="Answer" />

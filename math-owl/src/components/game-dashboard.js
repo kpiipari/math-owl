@@ -14,8 +14,10 @@ class GameDashboard extends React.Component {
         score: 1,
         time: 0,
         gameSelected: false,
-        gameStarted: true,
+        gameStarted: false,
         gameEnded: false,
+        round1:{var1: 5, var2: 5, answer: 10}, 
+        round2:{var1: 2, var2: 3, answer: 5}
     };
 
     render() {
@@ -27,7 +29,7 @@ class GameDashboard extends React.Component {
                         level={this.state.level}
                         gameMode={this.state.gameStarted}
                     />
-                    <GameDetail score={this.state.score}/>
+                    <GameDetail score={this.state.score} var1={this.state.round1.var1} var2={this.state.round1.var2}/>
                 </div>
             );
         } else if (this.state.gameStarted) {
