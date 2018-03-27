@@ -17,7 +17,7 @@ class GameDetail extends React.Component {
                         <Button type="submit" className="btn btn-md">Submit</Button>
                     </Col>
                 </FormGroup>
-                <RoundCount/>
+                <RoundCount score={this.props.score}/>
             </Form>
         );
     }

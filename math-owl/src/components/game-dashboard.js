@@ -11,10 +11,10 @@ class GameDashboard extends React.Component {
     state = {
         level: 1,
         game: "Addition",
-        score: 0,
+        score: 1,
         time: 0,
         gameSelected: false,
-        gameStarted: false,
+        gameStarted: true,
         gameEnded: false,
     };
 
@@ -27,7 +27,7 @@ class GameDashboard extends React.Component {
                         level={this.state.level}
                         gameMode={this.state.gameStarted}
                     />
-                    <GameDetail />
+                    <GameDetail score={this.state.score}/>
                 </div>
             );
         } else if (this.state.gameStarted) {
