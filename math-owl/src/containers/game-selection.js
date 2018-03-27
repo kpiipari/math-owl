@@ -1,28 +1,35 @@
 import React from 'react';
-import { Col, Button, Grid, Row } from 'react-bootstrap';
+import { Icon, Header, Grid } from 'semantic-ui-react'
 
 class GameSelection extends React.Component {
     render() {
         return (
             <div>
-                <Grid>
-                    <Row>
-                        <Col xs={8} md={6} xsOffset={2}>
-                            <h2>Select a Game to play</h2>
-                        </Col>
-                        <Col xs={8} md={6} xsOffset={2}>
-                            <Button type="submit" className="btn btn-md">Addition</Button>
-                        </Col>
-                        <Col xs={8} md={6} xsOffset={2}>
-                            <Button type="submit" className="btn btn-md">Substraction</Button>
-                        </Col>
-                        <Col xs={8} md={6} xsOffset={2}>
-                            <Button type="submit" className="btn btn-md">Multiplication</Button>
-                        </Col>
-                        <Col xs={8} md={6} xsOffset={2}>
-                            <Button type="submit" className="btn btn-md">Division</Button>
-                        </Col>
-                    </Row>
+                
+                <Grid centered columns={3}>
+                    <Grid.Column>
+                        <Header size='huge' color='purple'>Choose Game</Header>
+                    </Grid.Column>
+                    <Grid.Row centered columns={4}>
+                        <Grid.Column>
+                            <Header as='h2' icon>
+                                <Icon name='plus' />
+                                Add
+                            </Header>
+                        </Grid.Column>
+                        <Grid.Column>
+                            <Header as='h2' icon>
+                                <Icon name='minus' size='massive' />
+                                Substract
+                            </Header>
+                        </Grid.Column>
+                        <Grid.Column>
+                            <Header as='h2' icon>
+                                <Icon name='asterisk' size='massive' /> 
+                                Multiply
+                            </Header>
+                        </Grid.Column>
+                    </Grid.Row>
                 </Grid>
             </div>
         );

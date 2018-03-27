@@ -1,25 +1,22 @@
 import React from 'react';
-import { Navbar, Nav, NavItem } from 'react-bootstrap';
+import { Menu, Segment } from 'semantic-ui-react'
 
 class Header extends React.Component {
+    state = { activeItem: 'home' }
+
+    handleItemClick = (e, { name }) => this.setState({ activeItem: name })
     render() {
+        const { activeItem } = this.state;
+
         return (
             <div>
-                <Navbar fluid inverse>
-                    <Navbar.Header>
-                        <Navbar.Brand>
-                            <a href="#home">MathOwl</a>
-                        </Navbar.Brand>
-                        <Navbar.Toggle />
-                     </Navbar.Header>
-                     <Navbar.Collapse>
-                        <Nav>
-                            <NavItem>Games</NavItem>
-                            <NavItem>Player</NavItem>
-                            <NavItem>Leaderboard</NavItem>
-                        </Nav>
-                    </Navbar.Collapse>
-                </Navbar>
+                <Segment inverted>
+                     <Menu inverted pointing secondary>
+                        <Menu.Item name='mathOwl' active={activeItem === 'home'} onClick={this.handleItemClick} />
+                        <Menu.Item name='games' active={activeItem === 'games'} onClick={this.handleItemClick} />
+                        <Menu.Item name='leaderboard' active={activeItem === 'leaderboard'} onClick={this.handleItemClick} />
+                    </Menu>
+                </Segment>
             </div>
         );
     }

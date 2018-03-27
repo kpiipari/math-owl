@@ -14,7 +14,7 @@ class GameDashboard extends React.Component {
         score: 1,
         time: 0,
         gameSelected: false,
-        gameStarted: false,
+        gameStarted: true,
         gameEnded: false,
         round1:{var1: 5, var2: 5, answer: 10}, 
         round2:{var1: 2, var2: 3, answer: 5}
