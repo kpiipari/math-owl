@@ -1,24 +1,24 @@
 import React from 'react';
-import { Form, FormGroup, ControlLabel, FormControl, Col, Button } from 'react-bootstrap';
+import { Form, Input, Button, Container } from 'semantic-ui-react';
 import RoundCount from './round-count';
 
 class GameDetail extends React.Component {
     render() {
         return (
-            <Form horizontal>
-                <FormGroup controlId="formHorizontalEmail" className="form-group-lg row">
-                    <Col componentClass={ControlLabel} sm={4}>
-                        {this.props.var1} + {this.props.var2} =
-                    </Col>
-                    <Col sm={2}>
-                        <FormControl type="answer" placeholder="Answer" />
-                    </Col>
-                    <Col sm={2}>
-                        <Button type="submit" className="btn btn-md">Submit</Button>
-                    </Col>
-                </FormGroup>
-                <RoundCount score={this.props.score}/>
-            </Form>
+            <div>
+                <Container>
+                    <Form size={'huge'}>
+                        <Form.Field inline>
+                            <label>{this.props.var1} + {this.props.var2} =</label>
+                            <Input placeholder='Answer' />
+                        </Form.Field>
+                        <Button type='submit'>Submit</Button>
+                    </Form>
+                </Container>
+                <Container>
+                    <RoundCount score={this.props.score}/>
+                </Container>
+            </div>
         );
     }
 }
