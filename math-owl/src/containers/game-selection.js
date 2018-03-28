@@ -1,14 +1,15 @@
 import React from 'react';
-import { Icon, Header, Grid } from 'semantic-ui-react'
+import { Icon, Header, Grid, Segment } from 'semantic-ui-react'
 
 class GameSelection extends React.Component {
     render() {
         return (
             <div>
-                
-                <Grid centered columns={3}>
+                <Grid centered columns={2}>
                     <Grid.Column>
-                        <Header size='huge' color='purple'>Choose Game</Header>
+                        <Segment vertical>
+                            <Header size={'huge'} textAlign='center' color='purple'>Choose Game</Header>
+                        </Segment>
                     </Grid.Column>
                     <Grid.Row centered columns={4}>
                         <Grid.Column>
