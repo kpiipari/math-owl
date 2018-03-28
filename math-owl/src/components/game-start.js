@@ -1,17 +1,14 @@
 import React from 'react';
-import { Col, Button, Grid, Row } from 'react-bootstrap';
+import { Icon, Header } from 'semantic-ui-react';
 
 class GameStart extends React.Component {
     render() {
         return (
             <div>
-                <Grid>
-                    <Row>
-                        <Col xs={8} md={6} xsOffset={2}>
-                            <Button type="submit" className="btn btn-md">Start</Button>
-                        </Col>
-                    </Row>
-                </Grid>
+                <Header as='h2' icon>
+                    <Icon name='play' color='purple' />
+                        Start
+                </Header>
             </div>
         );
     }
