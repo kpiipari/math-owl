@@ -1,28 +1,20 @@
 import React from 'react';
-import { Form, FormGroup, ControlLabel, FormControl, Col, Button, Grid, Row } from 'react-bootstrap';
+import { Form, Input, Button, Container, Divider } from 'semantic-ui-react';
 
 class EndGame extends React.Component {
     render() {
         return (
-           
-            <Grid>
-                <Row>
-                <Col xs={8} md={6} xsOffset={2}>
-                    <h4>Enter name to add your results to the Leaderboard</h4>
-                </Col>
-                    <Form horizontal>
-                        <FormGroup controlId="formHorizontalEmail" className="form-group-lg row">
-                            <Col xs={4} md={4} xsOffset={2}>
-                                <FormControl type="answer" placeholder="Answer" />
-                            </Col>
-                            <Col xs={8} md={6} xsOffset={2}>
-                                <Button type="submit" className="btn btn-md">Submit</Button>
-                            </Col>
-                        </FormGroup>
+            <Container>
+                    <Form size={'large'}>
+                        <Form.Group>
+                            <Form.Field inline>
+                                <label>Your score: {this.props.score}</label>
+                                <Input placeholder='Your name' />
+                            </Form.Field>
+                            <Button type='submit'>Submit Score</Button>
+                        </Form.Group>
                     </Form>
-                </Row>
-            </Grid>
-            
+            </Container>
         );
     }
 }
