@@ -29,13 +29,15 @@ class SubHeader extends React.Component {
             );
         } else {
             return (
-                <Grid centered columns={1}>
-                    <Grid.Column>
-                        <Header as='h1'>
-                            <Message message="Welcome to Math Owl"/>
-                        </Header>
-                </Grid.Column>
-                </Grid>
+                <Segment>
+                    <Grid centered columns={1}>
+                        <Grid.Column>
+                            <Header as='h1' textAlign='center'>
+                                <Message message="Welcome to Math Owl"/>
+                            </Header>
+                        </Grid.Column>
+                    </Grid>
+                </Segment>
             );
         }
     }
