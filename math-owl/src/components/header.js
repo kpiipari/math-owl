@@ -11,7 +11,7 @@ class Header extends React.Component {
         return (
             <div>
                 <Segment inverted>
-                     <Menu inverted pointing secondary>
+                     <Menu inverted pointing secondary size='huge' fluid widths={3}>
                         <Menu.Item name='mathOwl' active={activeItem === 'home'} onClick={this.handleItemClick} />
                         <Menu.Item name='games' active={activeItem === 'games'} onClick={this.handleItemClick} />
                         <Menu.Item name='leaderboard' active={activeItem === 'leaderboard'} onClick={this.handleItemClick} />

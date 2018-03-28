@@ -14,12 +14,12 @@ class SubHeader extends React.Component {
                     <Grid centered columns={2}>
                         <Grid.Row centered columns={2}>
                             <Grid.Column>
-                                <Header as='h1'>
+                                <Header as='h1' textAlign='center'>
                                     <GameType game={this.props.game}/>
                                 </Header>
                             </Grid.Column>
                             <Grid.Column>
-                                <Header as='h1' floated='right'>
+                                <Header as='h1' textAlign='center'>
                                     <Level level={this.props.level}/>
                                 </Header>
                             </Grid.Column>
