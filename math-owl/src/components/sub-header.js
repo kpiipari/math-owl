@@ -3,27 +3,29 @@ import GameType from './game-type';
 import Level from './level';
 import Message from './message';
 
-import { Header, Grid } from 'semantic-ui-react'
+import { Header, Grid, Segment } from 'semantic-ui-react';
 
 class SubHeader extends React.Component {
    
     render() {
         if (this.props.gameMode) {
             return (
-                <Grid centered columns={2}>
-                    <Grid.Row centered columns={2}>
-                        <Grid.Column>
-                            <Header as='h1'>
-                                <GameType game={this.props.game}/>
-                            </Header>
-                        </Grid.Column>
-                        <Grid.Column>
-                            <Header as='h1'>
-                                <Level level={this.props.level}/>
-                            </Header>
-                        </Grid.Column>
-                    </Grid.Row>
-                </Grid>
+                <Segment>
+                    <Grid centered columns={2}>
+                        <Grid.Row centered columns={2}>
+                            <Grid.Column>
+                                <Header as='h1'>
+                                    <GameType game={this.props.game}/>
+                                </Header>
+                            </Grid.Column>
+                            <Grid.Column>
+                                <Header as='h1' floated='right'>
+                                    <Level level={this.props.level}/>
+                                </Header>
+                            </Grid.Column>
+                        </Grid.Row>
+                    </Grid>
+                </Segment>
             );
         } else {
             return (
