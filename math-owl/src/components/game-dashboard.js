@@ -21,7 +21,7 @@ class GameDashboard extends React.Component {
                     <Grid centered columns={2}>
                         <Grid.Row verticalAlign='middle'>
                             <Grid.Column>
-                                <GameDetail score={this.props.score} var1={this.props.round.var1} var2={this.props.round.var2}/>
+                                <GameDetail score={this.props.score} var1={this.props.round.var1} var2={this.props.round.var2} handleAnswerFormSubmit={this.props.handleAnswerFormSubmit}/>
                             </Grid.Column>
                         </Grid.Row>
                         <Grid.Row verticalAlign='middle'>
@@ -50,7 +50,7 @@ class GameDashboard extends React.Component {
                 <div>
                     <Grid centered columns={2}>
                         <Grid.Row verticalAlign='middle'>
-                            <GameSelection />
+                            <GameSelection handleGameSelection={this.props.handleGameSelection}/>
                         </Grid.Row>
                     </Grid>
                 </div>
@@ -72,7 +72,7 @@ class GameDashboard extends React.Component {
                     <Grid centered columns={2}>
                         <Grid.Row verticalAlign='middle'>
                             <Divider hidden />
-                            <GameStart />
+                            <GameStart handleGameStart={this.props.handleGameStart}/>
                         </Grid.Row>
                     </Grid>
                 </div>
