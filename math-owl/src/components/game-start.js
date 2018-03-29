@@ -6,7 +6,7 @@ class GameStart extends React.Component {
         return (
             <div>
                 <Header as='h2' icon>
-                    <Icon name='play' color='purple' />
+                    <Icon name='play' color='purple' onClick={this.props.handleGameStart}/>
                         Start
                 </Header>
             </div>
