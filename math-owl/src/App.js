@@ -39,6 +39,9 @@ class App extends Component {
                 gameEnded={this.state.gameEnded}
                 roundEnded={this.state.roundEnded}
                 round={this.state.round1}
+                handleGameStart={this.props.handleGameStart}
+                handleAnswerFormSubmit={this.props.handleAnswerFormSubmit}
+                handleGameSelection={this.props.handleGameSelection}
               />
           </div>
       )
