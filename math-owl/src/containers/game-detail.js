@@ -13,7 +13,7 @@ class GameDetail extends React.Component {
                                 <label>{this.props.var1} + {this.props.var2} =</label>
                                 <Input placeholder='Answer' />
                             </Form.Field>
-                            <Button type='submit'>Submit</Button>
+                            <Button type='submit' onClick={this.props.handleAnswerFormSubmit}>Submit</Button>
                         </Form.Group>
                     </Form>
                 </Container>
