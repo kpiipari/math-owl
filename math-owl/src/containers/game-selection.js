@@ -14,19 +14,19 @@ class GameSelection extends React.Component {
                     <Grid.Row centered columns={4}>
                         <Grid.Column>
                             <Header as='h2' icon>
-                                <Icon name='plus' />
+                                <Icon name='plus' size='massive' onClick={this.props.handleGameSelection}/>
                                 Add
                             </Header>
                         </Grid.Column>
                         <Grid.Column>
                             <Header as='h2' icon>
-                                <Icon name='minus' size='massive' />
+                                <Icon name='minus' size='massive' onClick={this.props.handleGameSelection}/>
                                 Substract
                             </Header>
                         </Grid.Column>
                         <Grid.Column>
                             <Header as='h2' icon>
-                                <Icon name='asterisk' size='massive' /> 
+                                <Icon name='asterisk' size='massive' onClick={this.props.handleGameSelection}/> 
                                 Multiply
                             </Header>
                         </Grid.Column>
