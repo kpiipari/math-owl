@@ -3,7 +3,7 @@ import './App.css';
 
 import Header from './components/header';
 import SubHeader from './components/sub-header';
-import GameDashboard from './components/game-dashboard';
+import GameDashboard from './containers/game-dashboard';
 
 
 class App extends Component {
@@ -25,9 +25,9 @@ class App extends Component {
           <div>
               <Header />
               <SubHeader 
-                  game={this.state.game}
-                  level={this.state.level}
-                  gameMode={this.state.gameSelected}
+                game={this.state.game}
+                level={this.state.level}
+                gameMode={this.state.gameSelected}
               />
               <GameDashboard 
                 game={this.state.game}

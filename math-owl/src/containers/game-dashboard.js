@@ -1,16 +1,14 @@
 import React from 'react';
 
-import GameStart from './game-start';
-import GameContinue from './game-continue';
-import GameSelection from '../containers/game-selection';
-import GameDetail from '../containers/game-detail';
-import Results from '../containers/results';
-import EndGame from '../containers/end-game';
-import RoundCount from '../containers/round-count';
-import FaStar from 'react-icons/lib/fa/star';
-import FaStarO from 'react-icons/lib/fa/star-o';
+import GameStart from '../components/game-start';
+import GameContinue from '../components/game-continue';
+import GameSelection from '../components/game-selection';
+import GameDetail from '../components/game-detail';
+import Results from '../components/results';
+import EndGame from '../components/end-game';
+import RoundCount from '../components/round-count';
 
-import { Divider, Grid, Segment } from 'semantic-ui-react';
+import { Divider, Grid } from 'semantic-ui-react';
 
 class GameDashboard extends React.Component {
     

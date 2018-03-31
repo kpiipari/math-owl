@@ -1,5 +1,5 @@
 import React from 'react';
-import { Form, Input, Button, Container, Divider } from 'semantic-ui-react';
+import { Form, Input, Button, Container } from 'semantic-ui-react';
 
 class EndGame extends React.Component {
     render() {
