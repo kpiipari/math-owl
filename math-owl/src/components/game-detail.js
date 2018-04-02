@@ -3,6 +3,7 @@ import { Form, Input, Button, Container } from 'semantic-ui-react';
 import GameOperand from './game-operand';
 
 class GameDetail extends React.Component {
+
     render() {
         return (
             <div>
