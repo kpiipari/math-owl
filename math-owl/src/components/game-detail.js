@@ -12,7 +12,7 @@ class GameDetail extends React.Component {
                         <Form.Group>
                             <Form.Field inline>
                                 <label>{this.props.var1} <GameOperand game={this.props.game}/> {this.props.var2} =</label>
-                                <Input placeholder='Answer' />
+                                <Input placeholder='Answer' type="text" value={this.props.answer} onChange={this.props.handleChange}/>
                             </Form.Field>
                             <Button type='submit' onClick={this.props.handleAnswerFormSubmit}>Submit</Button>
                         </Form.Group>
