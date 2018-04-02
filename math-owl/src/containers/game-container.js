@@ -32,6 +32,12 @@ class GameContainer extends Component {
     })
   }
 
+  handleChange = (event) => {
+      this.setState({
+          answer: event.target.value,
+      });
+  }
+
   render() {
       return (
           <div>
@@ -49,7 +55,9 @@ class GameContainer extends Component {
                 gameStarted={this.state.gameStarted}
                 gameEnded={this.state.gameEnded}
                 roundEnded={this.state.roundEnded}
-                round={this.state.round1}
+                round={this.state.round}
+                answer={this.state.answer}
+                handleChange={this.handleChange}
                 handleGameStart={this.handleGameStart}
                 handleAnswerFormSubmit={this.handleAnswerFormSubmit}
                 handleGameSelection={this.handleGameSelection}

@@ -20,7 +20,7 @@ class GameDashboard extends React.Component {
                     <Grid centered columns={2}>
                         <Grid.Row verticalAlign='middle'>
                             <Grid.Column>
-                                <GameDetail score={this.props.score} var1={this.props.round.var1} var2={this.props.round.var2} handleAnswerFormSubmit={this.props.handleAnswerFormSubmit}/>
+                                <GameDetail game={this.props.game} score={this.props.score} var1={this.props.round.var1} var2={this.props.round.var2} handleAnswerFormSubmit={this.props.handleAnswerFormSubmit} answer={this.props.answer} handleChange={this.props.handleChange}/>
                             </Grid.Column>
                         </Grid.Row>
                         <Grid.Row verticalAlign='middle'>
