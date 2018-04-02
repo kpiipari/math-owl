@@ -12,6 +12,7 @@ import { Divider, Grid } from 'semantic-ui-react';
 
 class GameDashboard extends React.Component {
     
+ 
     render() {
         if (this.props.gameStarted && !this.props.roundEnded) {
             return (
