@@ -19,32 +19,26 @@ describe('GameStart', () => {
 
   it('should tell the player to select a game', () => {
     expect(wrapper.containsMatchingElement(
-        <h2>Select a Game to play</h2>
+        <Header>Choose Game</Header>
        )).toBe(true);
   });
 
-  it('should show "addition" game button', () => {
+  it('should show "add" game icon', () => {
     expect(wrapper.containsMatchingElement(
-        <button>Addition</button>
+        <Icon name='plus'/>
        )).toBe(true);
   });
 
-  it('should show "substraction" game button', () => {
+  it('should show "substract" game icon', () => {
     expect(wrapper.containsMatchingElement(
-        <button>Substraction</button>
+        <Icon name='minus'/>
        )).toBe(true);
   });
 
-  it('should show "multiplication" game button', () => {
+  it('should show "multiply" game icon', () => {
     expect(wrapper.containsMatchingElement(
-        <button>Multiplication</button>
+      <Icon name='asterisk' />
        )).toBe(true);
   });
-
-  it('should show "division" game button', () => {
-    expect(wrapper.containsMatchingElement(
-        <button>Division</button>
-       )).toBe(true);
-  });
-    
+  
 });
