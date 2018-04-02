@@ -8,7 +8,7 @@ class RoundCount extends React.Component {
                 <Grid.Row verticalAlign='middle'>
                     <Grid.Column>
                         {Array.from({ length: this.props.score}, (v, k) => <Icon key={k} name='star' color='yellow' size='big'></Icon>)}
-                        {Array.from({ length: 10 - this.props.score}, (v, k) => <Icon key={k} name='star' color='white' size='big'></Icon>)}
+                        {Array.from({ length: 10 - this.props.score}, (v, k) => <Icon key={k} name='star' color='black' size='big'></Icon>)}
                     </Grid.Column>
                 </Grid.Row>
             </Grid>

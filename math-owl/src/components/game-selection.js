@@ -8,7 +8,7 @@ class GameSelection extends React.Component {
                 <Grid centered columns={2}>
                     <Grid.Column>
                         <Segment vertical>
-                            <Header size={'huge'} textAlign='center' color='purple'>Choose Game</Header>
+                            <Header size={'huge'} textAlign='center'>Choose Game</Header>
                         </Segment>
                     </Grid.Column>
                     <Grid.Row centered columns={4}>

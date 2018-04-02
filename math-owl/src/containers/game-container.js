@@ -8,7 +8,7 @@ class GameContainer extends Component {
   state = {
     level: 1,
     game: "",
-    score: 0,
+    score: 1,
     time: 0,
     gameSelected: false,
     gameStarted: false,
