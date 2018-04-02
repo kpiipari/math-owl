@@ -14,8 +14,8 @@ class GameContainer extends Component {
     gameStarted: false,
     roundEnded: false,
     gameEnded: false,
-    round1:{var1: 5, var2: 5, answer: 10}, 
-    round2:{var1: 2, var2: 3, answer: 5}
+    round:{var1: 5, var2: 5, answer: 10}, 
+    answer: '',
   };
 
   handleGameSelection = (event) => {
