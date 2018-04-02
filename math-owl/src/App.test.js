@@ -4,7 +4,7 @@ import { shallow } from 'enzyme';
 
 import Header from './components/header';
 import SubHeader from './components/sub-header';
-import Game from './components/game';
+import GameDashboard from './containers/game-dashboard';
 
 describe('App', () => {
 
@@ -29,6 +29,6 @@ describe('App', () => {
   });
 
   it('renders game', () => {
-    expect(wrapper.find(Game));
+    expect(wrapper.find(GameDashboard));
   });
 });

@@ -1,6 +1,7 @@
 import GameSelection from './game-selection';
 import React from 'react';
 import { shallow } from 'enzyme';
+import { Icon, Header } from 'semantic-ui-react'
 
 
 describe('GameStart', () => {
@@ -8,7 +9,7 @@ describe('GameStart', () => {
 
   beforeEach(() => {
     wrapper = shallow(
-      <GameStart />
+      <GameSelection />
     );
   });
 

@@ -2,37 +2,35 @@ import SubHeader from './sub-header';
 import GameType from './game-type';
 import Level from './level';
 import React from 'react';
+import Message from './message';
 import { shallow } from 'enzyme';
-import { Navbar, Nav, NavItem } from 'react-bootstrap';
+import { Header, Grid, Segment } from 'semantic-ui-react';
+
 
 
 describe('SubHeader', () => {
   let wrapper;
-
+  
   beforeEach(() => {
     wrapper = shallow(
-      <SubHeader />
+      <SubHeader 
+      />
     );
   });
 
   it('should exist', () => {
-    expect(wrapper).toBeDefined()
+    expect(wrapper).toBeDefined();
   });
     
-  it('should render Game component as a `navitem`', () => {
-    expect(wrapper.containsMatchingElement(
-        <NavItem>
-            <GameType />
-        </NavItem>
-       )).toBe(true);
+  it('should render GameType component', () => {
+    expect(expect(wrapper.find(GameType)));
   });
 
-  it('should render Level  as a `navitem`', () => {
-    expect(wrapper.containsMatchingElement(
-        <NavItem>
-            <Level />
-        </NavItem>
-       )).toBe(true);
+  it('should render Level component', () => {
+    expect(expect(wrapper.find(Level)));
   });
 
-});
+  it('should render Message component', () => {
+    expect(expect(wrapper.find(Message)));
+  });
+})
