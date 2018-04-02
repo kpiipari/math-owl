@@ -8,7 +8,7 @@ class GameContainer extends Component {
   state = {
     level: 1,
     game: "",
-    score: 1,
+    score: 0,
     time: 0,
     gameSelected: false,
     gameStarted: false,
@@ -19,14 +19,18 @@ class GameContainer extends Component {
   };
 
   handleGameSelection = (event) => {
-     event.preventDefault();
-     this.setState({
-         gameSelected: true,
-         game: event.target.id
-     })
+    event.preventDefault();
+    this.setState({
+        gameSelected: true,
+        game: event.target.id
+    })
   }
 
-
+  handleGameStart = () => {
+    this.setState({
+        gameStarted: true
+    })
+  }
 
   render() {
       return (
