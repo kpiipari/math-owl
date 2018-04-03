@@ -52,6 +52,12 @@ class GameContainer extends Component {
     });
   }
 
+  handleNameChange = (event) => {
+    this.setState({
+        player: event.target.value,
+    });
+}
+
   render() {
       return (
           <div>
@@ -77,6 +83,7 @@ class GameContainer extends Component {
                 handleGameSelection={this.handleGameSelection}
                 onContinue={this.onContinue}
                 onQuit={this.onQuit}
+                handleNameChange={this.handleNameChange}
               />
           </div>
       )

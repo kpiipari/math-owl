@@ -55,12 +55,11 @@ class GameDashboard extends React.Component {
                 </div>
             )
         } else if (this.props.gameEnded){
-            console.log(this.props.gameEnded)
             return (
                 <div>
                     <Grid centered columns={2}>
                         <Grid.Row verticalAlign='middle'>
-                            <EndGame score={this.props.score}/>
+                            <EndGame score={this.props.score} handleNameChange={this.props.handleNameChange}/>
                         </Grid.Row>
                     </Grid>
                 </div>
