@@ -7,7 +7,7 @@ class GameContinue extends React.Component {
             <Grid>
                 <Grid.Row centered columns={2}>
                     <Button.Group size={'large'}>
-                        <Button positive>Level {this.props.level + 1}</Button>
+                        <Button positive onClick={this.props.onContinue}>Level {this.props.level + 1}</Button>
                         <Button.Or />
                         <Button>Quit</Button>
                     </Button.Group>

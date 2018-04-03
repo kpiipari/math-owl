@@ -10,9 +10,9 @@ class GameContainer extends Component {
     game: "",
     score: 1,
     time: 0,
-    gameSelected: false,
-    gameStarted: false,
-    roundEnded: false,
+    gameSelected: true,
+    gameStarted: true,
+    roundEnded: true,
     gameEnded: false,
     round:{var1: 5, var2: 5, answer: 10}, 
     answer: '',
@@ -38,6 +38,13 @@ class GameContainer extends Component {
       });
   }
 
+  onContinue = () => {
+    this.setState({
+        level: this.state.level + 1,
+        gameStarted: false
+    });
+  }
+
   render() {
       return (
           <div>
@@ -61,6 +68,7 @@ class GameContainer extends Component {
                 handleGameStart={this.handleGameStart}
                 handleAnswerFormSubmit={this.handleAnswerFormSubmit}
                 handleGameSelection={this.handleGameSelection}
+                onContinue={this.onContinue}
               />
           </div>
       )
