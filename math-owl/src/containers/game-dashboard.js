@@ -38,7 +38,7 @@ class GameDashboard extends React.Component {
                         <Grid.Row verticalAlign='middle'>
                             <Grid.Column>
                                 <Results score={this.props.score} time={this.props.time}/>
-                                <GameContinue level={this.props.level} time={this.props.time} onContinue={this.props.onContinue}/>
+                                <GameContinue level={this.props.level} time={this.props.time} onContinue={this.props.onContinue} onQuit={this.props.onQuit}/>
                             </Grid.Column>
                         </Grid.Row>
                     </Grid>

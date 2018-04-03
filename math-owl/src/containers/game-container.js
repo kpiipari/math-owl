@@ -45,6 +45,12 @@ class GameContainer extends Component {
     });
   }
 
+  onQuit = () => {
+    this.setState({
+        gameEnded: true
+    });
+  }
+
   render() {
       return (
           <div>
@@ -69,6 +75,7 @@ class GameContainer extends Component {
                 handleAnswerFormSubmit={this.handleAnswerFormSubmit}
                 handleGameSelection={this.handleGameSelection}
                 onContinue={this.onContinue}
+                onQuit={this.onQuit}
               />
           </div>
       )
