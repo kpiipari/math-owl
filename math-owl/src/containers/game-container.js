@@ -10,6 +10,7 @@ class GameContainer extends Component {
     game: "",
     score: 1,
     time: 0,
+    player: "",
     gameSelected: true,
     gameStarted: true,
     roundEnded: true,
