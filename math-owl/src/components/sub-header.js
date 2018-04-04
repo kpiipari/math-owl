@@ -33,7 +33,7 @@ class SubHeader extends React.Component {
                     <Grid centered columns={1}>
                         <Grid.Column>
                             <Header as='h1' textAlign='center'>
-                                <Message message="Welcome to Math Owl"/>
+                                <Message message="Choose Game"/>
                             </Header>
                         </Grid.Column>
                     </Grid>
