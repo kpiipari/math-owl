@@ -1,21 +1,33 @@
 import React from 'react';
-import { Grid, Header } from 'semantic-ui-react';
+import { Grid, Header, Segment } from 'semantic-ui-react';
 
 class Results extends React.Component {
     render() {
         return (
-            <Grid>
-                <Grid.Row centered columns={4}>
-                    <Grid.Column>
-                        <Header as='h2'>
-                            Score: {this.props.score}
-                        </Header>
-                        <Header as='h2'>
-                            Time: {this.props.time}
-                        </Header>
-                    </Grid.Column>
-                </Grid.Row>
-            </Grid>
+            <div>
+                <Header
+                        as='h1'
+                        inverted
+                        style={{
+                        fontSize: '4em',
+                        fontWeight: 'normal',
+                        marginBottom: 0,
+                        marginTop: '0.5em',
+                        }}
+                    >Score: {this.props.score}
+                </Header>
+                <Header
+                        as='h1'
+                        inverted
+                        style={{
+                        fontSize: '4em',
+                        fontWeight: 'normal',
+                        marginBottom: 0,
+                        marginTop: '0.5em',
+                        }}
+                    >Time: {this.props.time}
+                </Header>
+            </div>
         );
     }
 }

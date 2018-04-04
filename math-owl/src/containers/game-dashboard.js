@@ -8,7 +8,7 @@ import Results from '../components/results';
 import EndGame from '../components/end-game';
 import RoundCount from '../components/round-count';
 
-import { Divider, Grid } from 'semantic-ui-react';
+import { Divider, Grid, Segment } from 'semantic-ui-react';
 
 class GameDashboard extends React.Component {
     
@@ -16,32 +16,18 @@ class GameDashboard extends React.Component {
     render() {
         if (this.props.gameStarted && !this.props.roundEnded) {
             return (
-                <div>
-                    <Grid centered columns={2}>
-                        <Grid.Row verticalAlign='middle'>
-                            <Grid.Column>
-                                <GameDetail game={this.props.game} score={this.props.score} var1={this.props.round.var1} var2={this.props.round.var2} handleAnswerFormSubmit={this.props.handleAnswerFormSubmit} answer={this.props.answer} handleChange={this.props.handleChange}/>
-                            </Grid.Column>
-                        </Grid.Row>
-                        <Grid.Row verticalAlign='middle'>
-                            <Grid.Column>
-                                <RoundCount score={this.props.score}/>
-                            </Grid.Column>
-                        </Grid.Row>
-                    </Grid>
+                <div>  
+                    <GameDetail game={this.props.game} score={this.props.score} var1={this.props.round.var1} var2={this.props.round.var2} handleAnswerFormSubmit={this.props.handleAnswerFormSubmit} answer={this.props.answer} handleChange={this.props.handleChange}/>
+                    <RoundCount score={this.props.score}/>     
                 </div>
             );
         } else if (this.props.gameStarted && this.props.roundEnded && !this.props.gameEnded) {
             return (
                 <div>
-                    <Grid centered columns={2}>
-                        <Grid.Row verticalAlign='middle'>
-                            <Grid.Column>
-                                <Results score={this.props.score} time={this.props.time}/>
-                                <GameContinue level={this.props.level} time={this.props.time} onContinue={this.props.onContinue} onQuit={this.props.onQuit}/>
-                            </Grid.Column>
-                        </Grid.Row>
-                    </Grid>
+                    <Segment textAlign='center' style={{ minHeight: 100, padding: '2em 0em' }} vertical>
+                        <Results score={this.props.score} time={this.props.time}/>
+                        <GameContinue level={this.props.level} time={this.props.time} onContinue={this.props.onContinue} onQuit={this.props.onQuit}/>
+                    </Segment>
                 </div>
             ); 
         } else if (!this.props.gameSelected){
@@ -57,11 +43,9 @@ class GameDashboard extends React.Component {
         } else if (this.props.gameEnded){
             return (
                 <div>
-                    <Grid centered columns={2}>
-                        <Grid.Row verticalAlign='middle'>
-                            <EndGame score={this.props.score} handleNameChange={this.props.handleNameChange}/>
-                        </Grid.Row>
-                    </Grid>
+                    <Segment textAlign='center' style={{ minHeight: 20, padding: '3em 0em', marginLeft: '20%', marginRight: '20%' }} vertical>
+                        <EndGame score={this.props.score} handleNameChange={this.props.handleNameChange}/>
+                    </Segment>
                 </div>
             )
         } else {
@@ -69,7 +53,6 @@ class GameDashboard extends React.Component {
                 <div>
                     <Grid centered columns={2}>
                         <Grid.Row verticalAlign='middle'>
-                            <Divider hidden />
                             <GameStart handleGameStart={this.props.handleGameStart}/>
                         </Grid.Row>
                     </Grid>

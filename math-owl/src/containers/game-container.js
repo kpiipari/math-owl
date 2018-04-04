@@ -13,8 +13,8 @@ class GameContainer extends Component {
     player: "",
     gameSelected: false,
     gameStarted: false,
-    roundEnded: false,
-    gameEnded: false,
+    roundEnded: true,
+    gameEnded: true,
     round:{var1: 5, var2: 5, answer: 10}, 
     answer: '',
   };

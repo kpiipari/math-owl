@@ -1,5 +1,5 @@
 import React from 'react';
-import { Form, Input, Button, Container } from 'semantic-ui-react';
+import { Form, Input, Button, Segment } from 'semantic-ui-react';
 import GameOperand from './game-operand';
 
 class GameDetail extends React.Component {
@@ -7,7 +7,7 @@ class GameDetail extends React.Component {
     render() {
         return (
             <div>
-                <Container>
+                 <Segment textAlign='center' style={{ minHeight: 20, padding: '3em 0em', marginLeft: '25%', marginRight: '25%' }} vertical>
                     <Form size={'huge'}>
                         <Form.Group>
                             <Form.Field inline>
@@ -17,7 +17,7 @@ class GameDetail extends React.Component {
                             <Button type='submit' onClick={this.props.handleAnswerFormSubmit}>Submit</Button>
                         </Form.Group>
                     </Form>
-                </Container>
+                </Segment>
             </div>
         );
     }
