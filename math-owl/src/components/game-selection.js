@@ -5,13 +5,8 @@ class GameSelection extends React.Component {
     render() {
         return (
             <div>
-                <Grid centered columns={2}>
-                    <Grid.Column>
-                        <Segment vertical>
-                            <Header size={'huge'} textAlign='center'>Choose Game</Header>
-                        </Segment>
-                    </Grid.Column>
-                    <Grid.Row centered columns={4}>
+                <Grid>
+                    <Grid.Row columns={3}>
                         <Grid.Column>
                             <Header as='h2' icon>
                                 <Icon name='plus' id="Add" size='massive' onClick={this.props.handleGameSelection}/>
