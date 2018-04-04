@@ -1,19 +1,38 @@
 import React from 'react';
-import { Header, Container, Button } from 'semantic-ui-react';
+import Message from './message';
+import { Header, Container, Button, Grid, Segment } from 'semantic-ui-react';
 
 class Home extends React.Component {
     render() {
         return (
             <div>
-                <Container>
-                    <Header as='h1'>
-                        Improve your math skills by play
-                    </Header>
-                    <p>Practise addition, subtraction and multiplication</p>
-                    <p>Submit your high score to the Leaderboard</p>
-                    <Button size='huge' circular={true} >Start</Button>
-
-                </Container>
+                <Segment inverted textAlign='center' style={{ minHeight: 700, padding: '1em 0em' }} vertical>
+                    <Header
+                        as='h1'
+                        content='Welcome to Math Owl'
+                        inverted
+                        style={{
+                        fontSize: '4em',
+                        fontWeight: 'normal',
+                        marginBottom: 0,
+                        marginTop: '3em',
+                        }}
+                    />
+                    <Header
+                        as='h2'
+                        content='Improve your math skills by play'
+                        inverted
+                        style={{
+                        fontSize: '1.7em',
+                        fontWeight: 'normal',
+                        marginTop: '1.5em',
+                        }}
+                    />
+                    <Button size='huge' color='purple'>
+                        Get Started
+                    </Button>
+                </Segment>             
+                
             </div>
         );
     }
