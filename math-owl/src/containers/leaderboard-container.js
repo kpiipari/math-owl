@@ -10,9 +10,8 @@ class LeaderboardContainer extends Component {
   render() {
       return (
         <div>
-                <LeaderboardHeader />
-                <Leaderboard />
-     
+            <LeaderboardHeader />
+            <Leaderboard />
         </div>
       )
     }
