@@ -8,7 +8,7 @@ class LeaderboardHeader extends React.Component {
     render() {
         return (
             <Segment textAlign='center' inverted style={{ minHeight: 100, padding: '1em 1em' }} vertical>
-                    <Grid centered columns={3}>
+                    <Grid centered columns={4}>
                         <Grid.Column>
                             <Header
                                 as='h1'
