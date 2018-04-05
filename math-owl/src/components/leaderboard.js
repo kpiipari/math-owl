@@ -1,76 +1,99 @@
 import React from 'react'
-import { Header, Image, Table } from 'semantic-ui-react'
+import { Header, Image, Table, Segment, Grid } from 'semantic-ui-react'
 
 const Leaderboard = () => (
-  <Table basic='very' celled collapsing>
-    <Table.Header>
-      <Table.Row>
-        <Table.HeaderCell>Rank</Table.HeaderCell>
-        <Table.HeaderCell>Name</Table.HeaderCell>
-        <Table.HeaderCell>Score</Table.HeaderCell>
-        <Table.HeaderCell>Time</Table.HeaderCell>
-      </Table.Row>
-    </Table.Header>
+    <Segment textAlign='center' style={{ minHeight: 300, padding: '6em 8em' }} vertical>
+        <Grid centered columns={2}>
+            <Grid.Row verticalAlign='middle'>
+                <Table size='large' inverted celled collapsing>
+                    <Table.Header>
+                    <Table.Row>
+                        <Table.HeaderCell>Rank</Table.HeaderCell>
+                        <Table.HeaderCell>Name</Table.HeaderCell>
+                        <Table.HeaderCell>Score</Table.HeaderCell>
+                        <Table.HeaderCell>Time</Table.HeaderCell>
+                    </Table.Row>
+                    </Table.Header>
 
-    <Table.Body>
-      <Table.Row>
-        <Table.Cell>
-          <Header as='h4' image>
-            <Image src='/assets/images/avatar/small/lena.png' rounded size='mini' />
-            <Header.Content>
-                Lena
-              <Header.Subheader>Human Resources</Header.Subheader>
-            </Header.Content>
-          </Header>
-        </Table.Cell>
-        <Table.Cell>
-            22
-        </Table.Cell>
-      </Table.Row>
-      <Table.Row>
-        <Table.Cell>
-          <Header as='h4' image>
-            <Image src='/assets/images/avatar/small/matthew.png' rounded size='mini' />
-            <Header.Content>
-                Matthew
-              <Header.Subheader>Fabric Design</Header.Subheader>
-            </Header.Content>
-          </Header>
-        </Table.Cell>
-        <Table.Cell>
-            15
-        </Table.Cell>
-      </Table.Row>
-      <Table.Row>
-        <Table.Cell>
-          <Header as='h4' image>
-            <Image src='/assets/images/avatar/small/lindsay.png' rounded size='mini' />
-            <Header.Content>
-                Lindsay
-              <Header.Subheader>Entertainment</Header.Subheader>
-            </Header.Content>
-          </Header>
-        </Table.Cell>
-        <Table.Cell>
-            12
-        </Table.Cell>
-      </Table.Row>
-      <Table.Row>
-        <Table.Cell>
-          <Header as='h4' image>
-            <Image src='/assets/images/avatar/small/mark.png' rounded size='mini' />
-            <Header.Content>
-                Mark
-              <Header.Subheader>Executive</Header.Subheader>
-            </Header.Content>
-          </Header>
-        </Table.Cell>
-        <Table.Cell>
-            11
-        </Table.Cell>
-      </Table.Row>
-    </Table.Body>
-  </Table>
+                    <Table.Body>
+                    <Table.Row>
+                        <Table.Cell>
+                        <Header as='h4' inverted>
+                            <Header.Content>
+                                1
+                            </Header.Content>
+                        </Header>
+                        </Table.Cell>
+                        <Table.Cell>
+                            Albert Einstein
+                        </Table.Cell>
+                        <Table.Cell>
+                            100
+                        </Table.Cell>
+                        <Table.Cell>
+                            5 min
+                        </Table.Cell>
+                    </Table.Row>
+                    <Table.Row>
+                        <Table.Cell>
+                        <Header as='h4' inverted>
+                            <Header.Content>
+                                2
+                            </Header.Content>
+                        </Header>
+                        </Table.Cell>
+                        <Table.Cell>
+                            Rosalind Franklin
+                        </Table.Cell>
+                        <Table.Cell>
+                            950
+                        </Table.Cell>
+                        <Table.Cell>
+                            6 min
+                        </Table.Cell>
+                    </Table.Row>
+                    <Table.Row>
+                        <Table.Cell>
+                        <Header as='h4' inverted>
+                            <Header.Content>
+                                3
+                            </Header.Content>
+                        </Header>
+                        </Table.Cell>
+                        <Table.Cell>
+                            Marie Curie
+                        </Table.Cell>
+                        <Table.Cell>
+                            70
+                        </Table.Cell>
+                        <Table.Cell>
+                            4 min
+                        </Table.Cell>
+                    </Table.Row>
+                    <Table.Row>
+                        <Table.Cell>
+                        <Header as='h4' inverted>
+                            <Header.Content>
+                                4
+                            </Header.Content>
+                        </Header>
+                        </Table.Cell>
+                        <Table.Cell>
+                            Ada Lovelace
+                        </Table.Cell>
+                        <Table.Cell>
+                            50
+                        </Table.Cell>
+                        <Table.Cell>
+                            3 min
+                        </Table.Cell>
+                    </Table.Row>
+                    </Table.Body>
+                </Table>
+            </Grid.Row>
+        </Grid>
+    </Segment>
+
 )
 
 export default Leaderboard;
