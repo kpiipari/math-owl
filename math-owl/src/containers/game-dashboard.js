@@ -44,7 +44,7 @@ class GameDashboard extends React.Component {
             return (
                 <div>
                     <Segment textAlign='center' style={{ minHeight: 20, padding: '3em 0em', marginLeft: '20%', marginRight: '20%' }} vertical>
-                        <EndGame score={this.props.score} handleNameChange={this.props.handleNameChange} handleSubmit={this.props.handleSubmit} player={this.props.player}/>
+                        <EndGame score={this.props.score} handleNameChange={this.props.handleNameChange} handlePlayerNameSubmit={this.props.handlePlayerNameSubmit} player={this.props.player}/>
                     </Segment>
                 </div>
             )
