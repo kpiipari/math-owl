@@ -56,7 +56,19 @@ class GameContainer extends Component {
     this.setState({
         player: event.target.value,
     });
-}
+  }
+
+  resetPlayerName = () => {
+    this.setState({
+        player: '',
+    });
+  }
+
+  handleSubmit = (event) => {
+      console.log('Player name and score submitted:' + this.state.player + this.state.score)
+      event.preventDefault();
+      this.resetPlayerName();
+  }
 
   render() {
       return (
@@ -84,6 +96,8 @@ class GameContainer extends Component {
                 onContinue={this.onContinue}
                 onQuit={this.onQuit}
                 handleNameChange={this.handleNameChange}
+                handleSubmit={this.handleSubmit}
+                player={this.state.player}
               />
           </div>
       )
