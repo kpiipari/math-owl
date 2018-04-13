@@ -39,6 +39,18 @@ class GameContainer extends Component {
       });
   }
 
+  handleAnswerSubmit = (event) => {
+    console.log('Answer submitted:' + this.state.answer)
+    event.preventDefault();
+    this.resetAnswerField();
+  }
+
+  resetAnswerField = () => {
+    this.setState({
+        answer: '',
+    });
+  }
+
   onContinue = () => {
     this.setState({
         level: this.state.level + 1,
@@ -61,12 +73,6 @@ class GameContainer extends Component {
   resetPlayerName = () => {
     this.setState({
         player: '',
-    });
-  }
-
-  resetAnswerField = () => {
-    this.setState({
-        answer: '',
     });
   }
 
@@ -103,7 +109,9 @@ class GameContainer extends Component {
                 onQuit={this.onQuit}
                 handleNameChange={this.handleNameChange}
                 handlePlayerNameSubmit={this.handlePlayerNameSubmit}
+                handleAnswerSubmit={this.handleAnswerSubmit}
                 player={this.state.player}
+                answer={this.state.answer}
               />
           </div>
       )

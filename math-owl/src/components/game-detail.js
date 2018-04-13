@@ -8,7 +8,7 @@ class GameDetail extends React.Component {
         return (
             <div>
                  <Segment textAlign='center' style={{ minHeight: 20, padding: '3em 0em' }} vertical>
-                    <Form>
+                    <Form onSubmit={this.props.handleAnswerSubmit}>
                         <Form.Field>
                             <label>
                                 <Header
