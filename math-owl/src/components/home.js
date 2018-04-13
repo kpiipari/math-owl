@@ -1,5 +1,6 @@
 import React from 'react';
 import Message from './message';
+import { Link } from 'react-router-dom';
 import { Header, Container, Button, Grid, Segment } from 'semantic-ui-react';
 
 class Home extends React.Component {
@@ -28,9 +29,11 @@ class Home extends React.Component {
                         marginTop: '1.5em',
                         }}
                     />
-                    <Button size='huge' color='purple'>
-                        Get Started
-                    </Button>
+                    <Link to="/games">
+                        <Button size='huge' color='purple'>
+                            Get Started
+                        </Button>
+                    </Link>
                 </Segment>             
                 
             </div>
