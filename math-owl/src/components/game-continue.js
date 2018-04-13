@@ -1,5 +1,5 @@
 import React from 'react';
-import { Grid, Button, Segment } from 'semantic-ui-react';
+import { Button, Segment } from 'semantic-ui-react';
 
 class GameContinue extends React.Component {
     render() {

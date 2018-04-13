@@ -8,7 +8,7 @@ import Results from '../components/results';
 import EndGame from '../components/end-game';
 import RoundCount from '../components/round-count';
 
-import { Divider, Grid, Segment } from 'semantic-ui-react';
+import { Grid, Segment } from 'semantic-ui-react';
 
 class GameDashboard extends React.Component {
     

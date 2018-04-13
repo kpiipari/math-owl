@@ -1,7 +1,6 @@
 import React from 'react';
 import GameType from './game-type';
 import Level from './level';
-import Message from './message';
 
 import { Header, Grid, Segment } from 'semantic-ui-react';
 

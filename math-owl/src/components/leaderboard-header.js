@@ -1,5 +1,4 @@
 import React from 'react';
-import Message from './message';
 
 import { Header, Grid, Segment } from 'semantic-ui-react';
 

@@ -1,5 +1,5 @@
 import React from 'react'
-import { Header, Image, Table, Segment, Grid } from 'semantic-ui-react'
+import { Header, Table, Segment, Grid } from 'semantic-ui-react'
 
 const Leaderboard = () => (
     <Segment textAlign='center' style={{ minHeight: 300, padding: '6em 8em' }} vertical>

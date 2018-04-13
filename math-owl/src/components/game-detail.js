@@ -1,5 +1,5 @@
 import React from 'react';
-import { Form, Input, Button, Segment, Header, Grid } from 'semantic-ui-react';
+import { Form, Button, Segment, Header } from 'semantic-ui-react';
 import GameOperand from './game-operand';
 
 class GameDetail extends React.Component {

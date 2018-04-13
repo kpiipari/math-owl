@@ -1,5 +1,5 @@
 import React from 'react';
-import { Grid, Icon, Segment } from 'semantic-ui-react';
+import { Icon, Segment } from 'semantic-ui-react';
 
 class RoundCount extends React.Component {
     render() {

@@ -8,13 +8,13 @@ class GameContainer extends Component {
   state = {
     level: 1,
     game: "",
-    score: 1,
+    score: 4,
     time: 0,
     player: "",
     gameSelected: false,
     gameStarted: false,
-    roundEnded: true,
-    gameEnded: true,
+    roundEnded: false,
+    gameEnded: false,
     round:{var1: 5, var2: 5, answer: 10}, 
     answer: '',
   };
@@ -95,6 +95,7 @@ class GameContainer extends Component {
                 level={this.state.level}
                 score={this.state.score}
                 time={this.state.time}
+                player={this.state.player}
                 gameSelected={this.state.gameSelected}
                 gameStarted={this.state.gameStarted}
                 gameEnded={this.state.gameEnded}
@@ -103,15 +104,12 @@ class GameContainer extends Component {
                 answer={this.state.answer}
                 handleChange={this.handleChange}
                 handleGameStart={this.handleGameStart}
-                handleAnswerFormSubmit={this.handleAnswerFormSubmit}
                 handleGameSelection={this.handleGameSelection}
                 onContinue={this.onContinue}
                 onQuit={this.onQuit}
                 handleNameChange={this.handleNameChange}
                 handlePlayerNameSubmit={this.handlePlayerNameSubmit}
                 handleAnswerSubmit={this.handleAnswerSubmit}
-                player={this.state.player}
-                answer={this.state.answer}
               />
           </div>
       )

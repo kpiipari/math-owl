@@ -1,7 +1,6 @@
 import React from 'react';
-import Message from './message';
 import { Link } from 'react-router-dom';
-import { Header, Container, Button, Grid, Segment } from 'semantic-ui-react';
+import { Header, Button, Segment } from 'semantic-ui-react';
 
 class Home extends React.Component {
     render() {
