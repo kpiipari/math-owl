@@ -16,8 +16,8 @@ class GameSelection extends React.Component {
                             </Grid.Column>
                             <Grid.Column>
                                 <Header as='h1' icon>
-                                    <Icon name='minus' id="Substract" size='massive' onClick={this.props.handleGameSelection}/>
-                                    Substract
+                                    <Icon name='minus' id="Subtract" size='massive' onClick={this.props.handleGameSelection}/>
+                                    Subtract
                                 </Header>
                             </Grid.Column>
                             <Grid.Column>

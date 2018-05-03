@@ -6,7 +6,7 @@ class GameOperand extends React.Component {
             return (
                 "+"
             );
-        } else if (this.props.game === "Substract") {
+        } else if (this.props.game === "Subtract") {
             return (
                 "-"
             );
