@@ -41,6 +41,34 @@ export function timeFetchedSuccess(time) {
     }
 }
 
+export function gameSelected(bool) {
+    return {
+        type: types.GAME_SELECTED,
+        gameSelected: bool
+    }
+}
+
+export function gameStarted(bool) {
+    return {
+        type: types.GAME_STARTED,
+        gameStarted: bool
+    }
+}
+
+export function roundEnded(bool) {
+    return {
+        type: types.ROUND_ENDED,
+        roundEnded: bool
+    }
+}
+
+export function gameEnded(bool) {
+    return {
+        type: types.GAME_ENDED,
+        gameEnded: bool
+    }
+}
+
 /* 
 
 export function receiveGame(json) {
@@ -60,18 +88,8 @@ export function fetchAdditionGame() {
     };
 }
 
-
-export const FETCH_GAME = 'FETCH_GAME';
-export const RECEIVE_GAME = 'RECEIVE_GAME';
-
-export const SCORE = 'SCORE';
-export const TIME = 'TIME';
-export const PLAYER = 'PLAYER';
-export const GAME_SELECTED = 'GAME_SELECTED';
-export const GAME_STARTED = 'GAME_STARTED';
-export const ROUND_ENDED = 'ROUND_ENDED';
-export const GAME_ENDED = 'GAME_ENDED';
 export const ROUND_FETCHED_SUCCESS = 'ROUND_FETCHED_SUCCESS';
 export const ROUND_FETCHED_FAIL = 'ROUND_FETCHED_FAIL';
 export const ANSWER = 'ANSWER';
+export const PLAYER = 'PLAYER';
 */
