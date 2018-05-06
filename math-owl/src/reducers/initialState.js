@@ -7,5 +7,4 @@ export default {
     gameStarted: false,
     roundEnded: false,
     gameEnded: false,
-    round: {}
 }

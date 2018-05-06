@@ -76,6 +76,13 @@ export function roundFetchedSuccess(round) {
     }
 }
 
+export function roundFetchFail(bool) {
+    return {
+        type: types.ROUND_FETCH_FAIL,
+        roundFetchFail: bool
+    }
+}
+
 /* 
 
 export function receiveGame(json) {

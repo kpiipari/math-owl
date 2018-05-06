@@ -1,5 +1,6 @@
 import initialState from './initialState';
-import { INCREMENT_LEVEL, ADDITION_GAME, SUBTRACTION_GAME, MULTIPLY_GAME, INCREMENT_SCORE, TIME_FETCHED_SUCCESS, GAME_STARTED, GAME_SELECTED, ROUND_ENDED, GAME_ENDED, ROUND_FETCHED_SUCCESS } from '../actions/actionTypes';
+import { INCREMENT_LEVEL, ADDITION_GAME, SUBTRACTION_GAME, MULTIPLY_GAME, INCREMENT_SCORE, TIME_FETCHED_SUCCESS, GAME_STARTED, GAME_SELECTED, ROUND_ENDED, GAME_ENDED, ROUND_FETCHED_SUCCESS, ROUND_FETCH_FAIL } from '../actions/actionTypes';
+import { defaultCipherList } from 'constants';
 
 export default function incrementLevel(state = initialState.level, action) {
     switch (action.type) {
@@ -86,6 +87,15 @@ export default function round(state = initialState.round, action) {
     switch (action.type) {
         case ROUND_FETCHED_SUCCESS:
             return action.round
+        default:
+            return state
+    }
+}
+
+export default function roundFetchFail(state = false, action) {
+    switch (action.type) {
+        case ROUND_FETCH_FAIL:
+            return action.roundFetchFail
         default:
             return state
     }

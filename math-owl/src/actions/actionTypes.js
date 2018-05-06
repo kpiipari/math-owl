@@ -12,7 +12,7 @@ export const GAME_STARTED = 'GAME_STARTED';
 export const ROUND_ENDED = 'ROUND_ENDED';
 export const GAME_ENDED = 'GAME_ENDED';
 export const ROUND_FETCHED_SUCCESS = 'ROUND_FETCHED_SUCCESS';
-export const ROUND_FETCHED_FAIL = 'ROUND_FETCHED_FAIL';
+export const ROUND_FETCH_FAIL = 'ROUND_FETCH_FAIL';
 export const SEND_ANSWER = 'SEND_ANSWER';
 
 export const API_URL = process.env.REACT_APP_API_URL;
