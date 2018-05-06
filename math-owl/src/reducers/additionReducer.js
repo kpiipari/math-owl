@@ -1,5 +1,5 @@
 import initialState from './initialState';
-import { INCREMENT_LEVEL, ADDITION_GAME, SUBTRACTION_GAME, MULTIPLY_GAME, INCREMENT_SCORE, TIME_FETCHED_SUCCESS, GAME_STARTED, GAME_SELECTED, ROUND_ENDED, GAME_ENDED } from '../actions/actionTypes';
+import { INCREMENT_LEVEL, ADDITION_GAME, SUBTRACTION_GAME, MULTIPLY_GAME, INCREMENT_SCORE, TIME_FETCHED_SUCCESS, GAME_STARTED, GAME_SELECTED, ROUND_ENDED, GAME_ENDED, ROUND_FETCHED_SUCCESS } from '../actions/actionTypes';
 
 export default function incrementLevel(state = initialState.level, action) {
     switch (action.type) {
@@ -77,6 +77,15 @@ export default function gameEnded(state = initialState.gameEnded, action) {
     switch (action.type) {
         case GAME_ENDED:
             return action.gameEnded
+        default:
+            return state
+    }
+}
+
+export default function round(state = initialState.round, action) {
+    switch (action.type) {
+        case ROUND_FETCHED_SUCCESS:
+            return action.round
         default:
             return state
     }
