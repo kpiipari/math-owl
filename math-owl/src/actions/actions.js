@@ -34,6 +34,13 @@ export function incrementScore() {
     }
 }
 
+export function timeFetchedSuccess(time) {
+    return {
+        type: types.TIME_FETCHED_SUCCESS,
+        time
+    }
+}
+
 /* 
 
 export function receiveGame(json) {
