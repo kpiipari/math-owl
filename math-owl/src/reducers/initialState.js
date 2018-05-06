@@ -3,4 +3,8 @@ export default {
     game: "",
     score: 0,
     time: 0,
+    gameSelected: false,
+    gameStarted: false,
+    roundEnded: false,
+    gameEnded: false,
 }
