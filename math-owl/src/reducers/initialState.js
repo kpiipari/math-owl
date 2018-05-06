@@ -1,3 +1,4 @@
 export default {
-    game: []
+    level: 1,
+    game: "Addition",
 }

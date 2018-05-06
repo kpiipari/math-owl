@@ -1,7 +1,9 @@
 export const FETCH_GAME = 'FETCH_GAME';
 export const RECEIVE_GAME = 'RECEIVE_GAME';
-export const LEVEL = 'LEVEL';
-export const GAME = 'GAME';
+export const INCREMENT_LEVEL = 'INCREMENT_LEVEL';
+export const ADDITION_GAME = 'ADDITION_GAME';
+export const SUBTRACTION_GAME = 'SUBTRACTION_GAME';
+export const MULTIPLY_GAME = 'MULTIPLY_GAME';
 export const SCORE = 'SCORE';
 export const TIME = 'TIME';
 export const PLAYER = 'PLAYER';
