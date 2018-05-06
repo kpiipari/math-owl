@@ -1,5 +1,5 @@
 import initialState from './initialState';
-import { INCREMENT_LEVEL, ADDITION_GAME, SUBTRACTION_GAME, MULTIPLY_GAME, INCREMENT_SCORE, TIME_FETCHED_SUCCESS, GAME_STARTED, GAME_SELECTED, ROUND_ENDED, GAME_ENDED, ROUND_FETCHED_SUCCESS, ROUND_FETCH_FAIL } from '../actions/actionTypes';
+import { INCREMENT_LEVEL, ADDITION_GAME, SUBTRACTION_GAME, MULTIPLY_GAME, INCREMENT_SCORE, TIME_FETCHED_SUCCESS, GAME_STARTED, GAME_SELECTED, ROUND_ENDED, GAME_ENDED, ROUND_FETCHED_SUCCESS, ROUND_FETCH_FAIL, ANSWER } from '../actions/actionTypes';
 import { defaultCipherList } from 'constants';
 
 export default function incrementLevel(state = initialState.level, action) {
@@ -101,6 +101,14 @@ export default function roundFetchFail(state = false, action) {
     }
 }
 
+export default function answer(state = initialState.answer, action) {
+    switch (action.type) {
+        case ANSWER:
+            return action.answer
+        default:
+            return state
+    }
+}
 /*export default function additionGame(state = initialState.game, action) {
     let newState;
     switch (action.type) {

@@ -83,6 +83,13 @@ export function roundFetchFail(bool) {
     }
 }
 
+export function answer(answer) {
+    return {
+        type: types.ANSWER,
+        answer
+    }
+}
+
 /* 
 
 export function receiveGame(json) {
@@ -102,8 +109,6 @@ export function fetchAdditionGame() {
     };
 }
 
-export const ROUND_FETCHED_SUCCESS = 'ROUND_FETCHED_SUCCESS';
-export const ROUND_FETCHED_FAIL = 'ROUND_FETCHED_FAIL';
 export const ANSWER = 'ANSWER';
 export const PLAYER = 'PLAYER';
 */
