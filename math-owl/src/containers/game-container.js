@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux'
 
 import SubHeader from '../components/sub-header';
 import GameDashboard from './game-dashboard';
