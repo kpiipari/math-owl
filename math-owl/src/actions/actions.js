@@ -30,7 +30,7 @@ export function multiplyGame() {
 
 export function incrementScore() {
     return {
-        type: types.SCORE
+        type: types.INCREMENT_SCORE
     }
 }
 
