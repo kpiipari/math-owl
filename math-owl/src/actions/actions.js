@@ -28,6 +28,14 @@ export function multiplyGame() {
     }
 }
 
+export function incrementScore() {
+    return {
+        type: types.SCORE
+    }
+}
+
+/* 
+
 export function receiveGame(json) {
     return {type: types.RECEIVE_GAME, game: json.game};
 }
