@@ -69,6 +69,13 @@ export function gameEnded(bool) {
     }
 }
 
+export function roundFetchedSuccess(round) {
+    return {
+        type: types.ROUND_FETCHED_SUCCESS,
+        round
+    }
+}
+
 /* 
 
 export function receiveGame(json) {
