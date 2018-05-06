@@ -1,5 +1,5 @@
 import initialState from './initialState';
-import { INCREMENT_LEVEL, ADDITION_GAME, SUBTRACTION_GAME, MULTIPLY_GAME } from '../actions/actionTypes';
+import { INCREMENT_LEVEL, ADDITION_GAME, SUBTRACTION_GAME, MULTIPLY_GAME, INCREMENT_SCORE } from '../actions/actionTypes';
 
 export default function incrementLevel(state = initialState.level, action) {
     switch (action.type) {
@@ -11,7 +11,7 @@ export default function incrementLevel(state = initialState.level, action) {
             return state
 }
 
-export default function setGameType(state = initialState, action) {
+export default function setGameType(state = initialState.game, action) {
     switch (action.type) {
         case ADDITION_GAME:
             return action.game
@@ -25,6 +25,16 @@ export default function setGameType(state = initialState, action) {
         default:
             return state
     }
+}
+
+export default function incrementScore(state = initialState.score, action) {
+    switch (action.type) {
+        case INCREMENT_SCORE:
+            return {
+                count: state.score + 1 
+            }
+        default:
+            return state
 }
 
 /*export default function additionGame(state = initialState.game, action) {
