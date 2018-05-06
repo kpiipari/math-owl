@@ -21,13 +21,13 @@ export default function setGameType(state = initialState, action) {
 
         case MULTIPLY_GAME:
             return action.game
-            
+
         default:
             return state
     }
 }
 
-export default function additionGame(state = initialState.game, action) {
+/*export default function additionGame(state = initialState.game, action) {
     let newState;
     switch (action.type) {
         case FETCH_GAME:
@@ -41,4 +41,4 @@ export default function additionGame(state = initialState.game, action) {
             return state;
 
     }
-}
+*/}
