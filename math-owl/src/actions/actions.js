@@ -90,6 +90,13 @@ export function answer(answer) {
     }
 }
 
+export function addPlayer(player) {
+    return {
+        type: types.ADD_PLAYER,
+        player
+    }
+}
+
 /* 
 
 export function receiveGame(json) {
@@ -108,7 +115,4 @@ export function fetchAdditionGame() {
         .then(json => dispatch(receiveGame(json)));
     };
 }
-
-export const ANSWER = 'ANSWER';
-export const PLAYER = 'PLAYER';
 */

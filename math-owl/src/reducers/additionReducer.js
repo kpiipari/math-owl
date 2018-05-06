@@ -1,5 +1,5 @@
 import initialState from './initialState';
-import { INCREMENT_LEVEL, ADDITION_GAME, SUBTRACTION_GAME, MULTIPLY_GAME, INCREMENT_SCORE, TIME_FETCHED_SUCCESS, GAME_STARTED, GAME_SELECTED, ROUND_ENDED, GAME_ENDED, ROUND_FETCHED_SUCCESS, ROUND_FETCH_FAIL, ANSWER } from '../actions/actionTypes';
+import { INCREMENT_LEVEL, ADDITION_GAME, SUBTRACTION_GAME, MULTIPLY_GAME, INCREMENT_SCORE, TIME_FETCHED_SUCCESS, GAME_STARTED, GAME_SELECTED, ROUND_ENDED, GAME_ENDED, ROUND_FETCHED_SUCCESS, ROUND_FETCH_FAIL, ANSWER, ADD_PLAYER } from '../actions/actionTypes';
 import { defaultCipherList } from 'constants';
 
 export default function incrementLevel(state = initialState.level, action) {
@@ -105,6 +105,15 @@ export default function answer(state = initialState.answer, action) {
     switch (action.type) {
         case ANSWER:
             return action.answer
+        default:
+            return state
+    }
+}
+
+export function addPlayer(state = initialState.player, action) {
+    switch (action.type) {
+        case ADD_PLAYER:
+            return action.player
         default:
             return state
     }

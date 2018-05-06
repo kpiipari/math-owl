@@ -8,4 +8,5 @@ export default {
     roundEnded: false,
     gameEnded: false,
     answer: "",
+    player: "".
 }
