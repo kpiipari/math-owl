@@ -76,7 +76,8 @@ export function roundFetchedSuccess(round) {
     }
 }
 
-export function roundFetchFail(bool) {
+export function roundFetchFail(bool, error) {
+    console.log(error)
     return {
         type: types.ROUND_FETCH_FAIL,
         roundFetchFail: bool
@@ -94,6 +95,17 @@ export function addPlayer(player) {
     return {
         type: types.ADD_PLAYER,
         player
+    }
+}
+
+// Ascyn action creators
+
+export function fetchAdditionRound(url) {
+    return dispatch => {
+        return fetch(`${API_URL}/addition`)
+        .then(response => response.json())
+        .then(round => dispatch(roundFetchedSuccess(round)))
+        .catch(error => dispatch(roundFetchFail(true, error)))
     }
 }
 
