@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { fetchAdditionRound } from '../actions/actions'
+import { fetchAdditionRound, gameSelected, gameType } from '../actions/actions'
 
 import SubHeader from '../components/sub-header';
 import GameDashboard from './game-dashboard';
@@ -8,55 +8,44 @@ import GameDashboard from './game-dashboard';
 
 class GameContainer extends Component {
 
-  state = {
-    level: 1,
-    game: "",
-    score: 4,
-    time: 0,
-    player: "",
-    gameSelected: false,
-    gameStarted: false,
-    roundEnded: false,
-    gameEnded: false,
-    round:{var1: 5, var2: 5, answer: 10}, 
-    answer: '',
-  }; 
+    componentDidMount() {
+        this.props.fetchAdditionRound();
+    }
+
 
   handleGameSelection = (event) => {
     event.preventDefault();
-    this.setState({
-        gameSelected: true,
-        game: event.target.id
-    })
+    dispatch(gameSelected(true))
+    dispatch(gameType(event.target.id))
   }
 
   handleGameStart = () => {
-    this.setState({
+    this.setprops({
         gameStarted: true
     })
   }
 
   handleChange = (event) => {
-      this.setState({
+      this.setprops({
           answer: event.target.value,
       });
   }
 
   handleAnswerSubmit = (event) => {
-    console.log('Answer submitted:' + this.state.answer)
+    console.log('Answer submitted:' + this.props.answer)
     event.preventDefault();
     this.resetAnswerField();
   }
 
   resetAnswerField = () => {
-    this.setState({
+    this.setprops({
         answer: '',
     });
   }
 
   onContinue = () => {
-    this.setState({
-        level: this.state.level + 1,
+    this.setprops({
+        level: this.props.level + 1,
         gameStarted: false
     });
   }
@@ -68,19 +57,19 @@ class GameContainer extends Component {
   }
 
   handleNameChange = (event) => {
-    this.setState({
+    this.setprops({
         player: event.target.value,
     });
   }
 
   resetPlayerName = () => {
-    this.setState({
+    this.setprops({
         player: '',
     });
   }
 
   handlePlayerNameSubmit = (event) => {
-      console.log('Player name and score submitted:' + this.state.player + this.state.score)
+      console.log('Player name and score submitted:' + this.props.player + this.props.score)
       event.preventDefault();
       this.resetPlayerName();
   }
@@ -89,22 +78,22 @@ class GameContainer extends Component {
       return (
           <div>
               <SubHeader 
-                game={this.state.game}
-                level={this.state.level}
-                gameMode={this.state.gameSelected}
+                game={this.props.game}
+                level={this.props.level}
+                gameMode={this.props.gameSelected}
               />
               <GameDashboard 
-                game={this.state.game}
-                level={this.state.level}
-                score={this.state.score}
-                time={this.state.time}
-                player={this.state.player}
-                gameSelected={this.state.gameSelected}
-                gameStarted={this.state.gameStarted}
-                gameEnded={this.state.gameEnded}
-                roundEnded={this.state.roundEnded}
-                round={this.state.round}
-                answer={this.state.answer}
+                game={this.props.game}
+                level={this.props.level}
+                score={this.props.score}
+                time={this.props.time}
+                player={this.props.player}
+                gameSelected={this.props.gameSelected}
+                gameStarted={this.props.gameStarted}
+                gameEnded={this.props.gameEnded}
+                roundEnded={this.props.roundEnded}
+                round={this.props.round}
+                answer={this.props.answer}
                 handleChange={this.handleChange}
                 handleGameStart={this.handleGameStart}
                 handleGameSelection={this.handleGameSelection}
@@ -122,14 +111,24 @@ class GameContainer extends Component {
 const mapStateToProps = (state) => {
     return {
         round: state.round,
-        roundFetchFail: state.roundFetchFail
+        game: state.game,
+        level: state.level,
+        gameSelected: state.gameSelected,
+        score: state.score,
+        time: state.time,
+        player: state.player,
+        gameStarted: state.gameStarted,
+        gameEnded: state.gameEnded,
+        roundEnded: state.roundEnded,
+        answer: state.answer
     };
 };
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        fetchRound: (url) => dispatch(fetchAdditionRound(url))
+        round: () => dispatch(fetchAdditionRound()),
+
     };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(GameContainer);
+export default connect(mapStateToProps, { fetchAdditionRound, gameSelected, gameType } )(GameContainer);
