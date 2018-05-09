@@ -69,6 +69,21 @@ export function gameEnded(bool) {
     }
 }
 
+export function answerSubmittedSuccess(round) {
+    return {
+        type: types.ANSWER_SUBMITTED_SUCCESS,
+        round
+    }
+}
+
+export function answerSubmittedFail(bool, error) {
+    console.log(error)
+    return {
+        type: types.ANSWER_SUBMITTED_FAIL,
+        answerSubmitFail: bool
+    }
+}
+
 export function roundFetchedSuccess(round) {
     return {
         type: types.ROUND_FETCHED_SUCCESS,
@@ -100,7 +115,7 @@ export function addPlayer(player) {
 
 // Ascyn action creators
 
-export function startNewAdditionGame(url) {
+export function fetchAdditionRound(url) {
     return dispatch => {
         return fetch(`${API_URL}/addition/new`)
         .then(response => response.json())
@@ -109,11 +124,11 @@ export function startNewAdditionGame(url) {
     }
 }
 
-export function fetchAdditionRound(url, id) {
+export function submitAnswer(url, id) {
     return dispatch => {
         return fetch(`${API_URL}/addition/${id}`)
         .then(response => response.json())
-        .then(round => dispatch(roundFetchedSuccess(round)))
+        .then(round => dispatch(answerSubmittedSuccess(round)))
         .catch(error => dispatch(roundFetchFail(true, error)))
     }
 }
