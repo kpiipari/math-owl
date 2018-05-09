@@ -1,6 +1,7 @@
 export const FETCH_GAME = 'FETCH_GAME';
 export const RECEIVE_GAME = 'RECEIVE_GAME';
 export const INCREMENT_LEVEL = 'INCREMENT_LEVEL';
+export const GAME_TYPE = 'GAME_TYPE';
 export const ADDITION_GAME = 'ADDITION_GAME';
 export const SUBTRACTION_GAME = 'SUBTRACTION_GAME';
 export const MULTIPLY_GAME = 'MULTIPLY_GAME';

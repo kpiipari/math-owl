@@ -7,6 +7,13 @@ export function incrementLevel() {
     };
 }
 
+export function gameType(text) {
+    return {
+        type: types.GAME_TYPE,
+        game: text
+    }
+}
+
 export function additionGame() {
     return {
         type: types.ADDITION_GAME,
