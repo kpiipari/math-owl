@@ -1,8 +1,8 @@
 import { combineReducers } from 'redux';
-import additionGame from './additionReducer';
+import { round } from './additionReducer';
 
 const rootReducer = combineReducers({
-    additionGame
+    round
 });
 
 export default rootReducer;

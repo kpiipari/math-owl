@@ -1,11 +1,13 @@
 import React, { Component } from 'react';
-import { connect } from 'react-redux'
+import { connect } from 'react-redux';
+import { fetchAdditionRound } from '../actions/actions'
 
 import SubHeader from '../components/sub-header';
 import GameDashboard from './game-dashboard';
 
 
 class GameContainer extends Component {
+
   state = {
     level: 1,
     game: "",
@@ -18,7 +20,7 @@ class GameContainer extends Component {
     gameEnded: false,
     round:{var1: 5, var2: 5, answer: 10}, 
     answer: '',
-  };
+  }; 
 
   handleGameSelection = (event) => {
     event.preventDefault();
@@ -117,4 +119,17 @@ class GameContainer extends Component {
     }
 }
 
-export default GameContainer;
+const mapStateToProps = (state) => {
+    return {
+        round: state.round,
+        roundFetchFail: state.roundFetchFail
+    };
+};
+
+const mapDispatchToProps = (dispatch) => {
+    return {
+        fetchRound: (url) => dispatch(fetchAdditionRound(url))
+    };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(GameContainer);
