@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
+import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
-import { fetchAdditionRound, gameSelected, gameType } from '../actions/actions'
+import { fetchAdditionRound, gameSelected, gameType, gameStarted, answer } from '../actions/actions'
 
 import SubHeader from '../components/sub-header';
 import GameDashboard from './game-dashboard';
@@ -8,31 +9,22 @@ import GameDashboard from './game-dashboard';
 
 class GameContainer extends Component {
 
-    componentDidMount() {
-        this.props.fetchAdditionRound();
-    }
-
 
   handleGameSelection = (event) => {
-    event.preventDefault();
-    dispatch(gameSelected(true))
-    dispatch(gameType(event.target.id))
+      this.props.gameStarted()
+      this.props.gameType(event.target.id)
   }
 
   handleGameStart = () => {
-    this.setprops({
-        gameStarted: true
-    })
+    this.props.gameStarted()
   }
 
   handleChange = (event) => {
-      this.setprops({
-          answer: event.target.value,
-      });
+      this.props.answer(event.target.value)
   }
 
   handleAnswerSubmit = (event) => {
-    console.log('Answer submitted:' + this.props.answer)
+    //console.log('Answer submitted:' + this.props.answer)
     event.preventDefault();
     this.resetAnswerField();
   }
@@ -120,15 +112,18 @@ const mapStateToProps = (state) => {
         gameStarted: state.gameStarted,
         gameEnded: state.gameEnded,
         roundEnded: state.roundEnded,
-        answer: state.answer
+        answer: state.answer,
     };
 };
 
 const mapDispatchToProps = (dispatch) => {
-    return {
-        round: () => dispatch(fetchAdditionRound()),
+    return bindActionCreators({
+        gameType: gameType,
+        gameSelected: gameSelected,
+        gameStarted: gameStarted,
+        answer: answer
+        
+    }, dispatch)
+}
 
-    };
-};
-
-export default connect(mapStateToProps, { fetchAdditionRound, gameSelected, gameType } )(GameContainer);
+export default connect(mapStateToProps, mapDispatchToProps )(GameContainer);

@@ -122,7 +122,7 @@ export function addPlayer(player) {
 
 // Ascyn action creators
 
-export const fetchAdditionRound = () => {
+export function fetchAdditionRound() {
     return dispatch => {
         return fetch(`${API_URL}/addition/new`)
         .then(response => response.json())

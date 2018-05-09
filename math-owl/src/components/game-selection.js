@@ -2,6 +2,7 @@ import React from 'react';
 import { Icon, Header, Grid, Segment } from 'semantic-ui-react'
 
 class GameSelection extends React.Component {
+
     render() {
         return (
             <div>
@@ -35,3 +36,4 @@ class GameSelection extends React.Component {
 }
 
 export default GameSelection;
+
