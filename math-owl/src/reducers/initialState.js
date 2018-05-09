@@ -3,10 +3,11 @@ export default {
     game: "",
     score: 0,
     time: 0,
+    round: {},
     gameSelected: false,
     gameStarted: false,
     roundEnded: false,
     gameEnded: false,
     answer: "",
-    player: "".
+    player: ""
 }
