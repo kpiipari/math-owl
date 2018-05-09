@@ -100,9 +100,18 @@ export function addPlayer(player) {
 
 // Ascyn action creators
 
-export function fetchAdditionRound(url) {
+export function startNewAdditionGame(url) {
     return dispatch => {
-        return fetch(`${API_URL}/addition`)
+        return fetch(`${API_URL}/addition/new`)
+        .then(response => response.json())
+        .then(round => dispatch(roundFetchedSuccess(round)))
+        .catch(error => dispatch(roundFetchFail(true, error)))
+    }
+}
+
+export function fetchAdditionRound(url, id) {
+    return dispatch => {
+        return fetch(`${API_URL}/addition/${id}`)
         .then(response => response.json())
         .then(round => dispatch(roundFetchedSuccess(round)))
         .catch(error => dispatch(roundFetchFail(true, error)))
