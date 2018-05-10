@@ -84,10 +84,10 @@ export function gameEnded(state = false, action) {
     }
 }
 
-export function round(state = {}, action) {
+export function round(state = [], action) {
     switch (action.type) {
         case 'ROUND_FETCHED_SUCCESS':
-            return action.round
+            return Object.assign({}, state, action.round)
         default:
             return state
     }

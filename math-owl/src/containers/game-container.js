@@ -87,7 +87,7 @@ class GameContainer extends Component {
                 gameStarted={this.props.gameStarted}
                 gameEnded={this.props.gameEnded}
                 roundEnded={this.props.roundEnded}
-                round={this.props.fetchAdditionRound}
+                round={this.props.round}
                 answer={this.props.answer}
                 handleChange={this.handleChange}
                 handleGameStart={this.handleGameStart}
@@ -104,12 +104,13 @@ class GameContainer extends Component {
 }
 
 const mapStateToProps = (state) => {
+    console.log(state)
     return {
         round: state.round,
         game: state.game,
         level: state.level,
         gameSelected: state.gameSelected,
-        score: state.score,
+        score: state.incrementScore,
         time: state.time,
         player: state.player,
         gameStarted: state.gameStarted,

@@ -1,10 +1,28 @@
 import React from 'react';
 import { Form, Button, Segment, Header } from 'semantic-ui-react';
 import GameOperand from './game-operand';
+import { bindActionCreators } from 'redux';
+import { connect } from 'react-redux';
+import { fetchAdditionRound } from '../actions/actions'
 
 class GameDetail extends React.Component {
 
-    render() {
+    componentDidMount() {
+        this.props.fetchAdditionRound()
+    }
+
+   roundJSON() {
+       let data = this.props.round
+       if (data.rounds !== undefined) {
+            let num1 = data.rounds.round1.num1
+            console.log(num1)
+       } else {
+           let num1 = ""
+       }
+   }
+
+    render() { 
+
         return (
             <div>
                  <Segment textAlign='center' style={{ minHeight: 20, padding: '3em 0em' }} vertical>
@@ -18,7 +36,7 @@ class GameDetail extends React.Component {
                                     fontSize: '4em',
                                     fontWeight: 'normal',
                                     }}
-                                    > {this.props.round} <GameOperand game={this.props.game}/> {this.props.round} =
+                                    > {this.roundJSON()} <GameOperand game={this.props.game}/> {this.roundJSON()} =
                                 </Header>
                             </label>
                             
@@ -36,4 +54,11 @@ class GameDetail extends React.Component {
     }
 }
 
-export default GameDetail;
+const mapDispatchToProps = (dispatch) => {
+    return {
+        fetchAdditionRound: () => dispatch(fetchAdditionRound())
+    };
+};
+
+export default connect(mapDispatchToProps)(GameDetail);
+
