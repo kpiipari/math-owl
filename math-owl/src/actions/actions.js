@@ -124,7 +124,7 @@ export function addPlayer(player) {
 
 export function fetchAdditionRound() {
     return dispatch => {
-        return fetch(`${API_URL}/addition/new`)
+        return fetch(`/api/addition/new`)
         .then(response => response.json())
         .then(round => dispatch(roundFetchedSuccess(round)))
         .catch(error => dispatch(roundFetchFail(true, error)))
