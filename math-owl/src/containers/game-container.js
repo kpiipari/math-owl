@@ -9,6 +9,9 @@ import GameDashboard from './game-dashboard';
 
 class GameContainer extends Component {
 
+  componentDidMount() {
+      this.props.fetchAdditionRound()
+  }
 
   handleGameSelection = (event) => {
       this.props.gameStarted()
@@ -84,7 +87,7 @@ class GameContainer extends Component {
                 gameStarted={this.props.gameStarted}
                 gameEnded={this.props.gameEnded}
                 roundEnded={this.props.roundEnded}
-                round={this.props.round}
+                round={this.props.fetchAdditionRound}
                 answer={this.props.answer}
                 handleChange={this.handleChange}
                 handleGameStart={this.handleGameStart}
@@ -121,7 +124,8 @@ const mapDispatchToProps = (dispatch) => {
         gameType: gameType,
         gameSelected: gameSelected,
         gameStarted: gameStarted,
-        answer: answer
+        answer: answer,
+        fetchAdditionRound: fetchAdditionRound
         
     }, dispatch)
 }
