@@ -17,7 +17,7 @@ class GameDashboard extends React.Component {
         if (this.props.gameStarted && !this.props.roundEnded) {
             return (
                 <div>  
-                    <GameDetail game={this.props.game} score={this.props.score} var1={this.props.round.var1} var2={this.props.round.var2} handleAnswerSubmit={this.props.handleAnswerSubmit} answer={this.props.answer} handleChange={this.props.handleChange}/>
+                    <GameDetail game={this.props.game} score={this.props.score} round={this.props.round} var1={this.props.round.var1} var2={this.props.round.var2} handleAnswerSubmit={this.props.handleAnswerSubmit} answer={this.props.answer} handleChange={this.props.handleChange}/>
                     <RoundCount score={this.props.score}/>     
                 </div>
             );

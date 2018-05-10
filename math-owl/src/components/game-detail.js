@@ -18,7 +18,7 @@ class GameDetail extends React.Component {
                                     fontSize: '4em',
                                     fontWeight: 'normal',
                                     }}
-                                    >{this.props.var1} <GameOperand game={this.props.game}/> {this.props.var2} =
+                                    > {this.props.round} <GameOperand game={this.props.game}/> {this.props.round} =
                                 </Header>
                             </label>
                             

@@ -39,7 +39,7 @@ class GameContainer extends Component {
   }
 
   onContinue = () => {
-    this.setprops({
+    this.setState({
         level: this.props.level + 1,
         gameStarted: false
     });
