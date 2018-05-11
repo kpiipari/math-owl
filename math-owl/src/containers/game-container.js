@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
-import { fetchAdditionRound, gameSelected, gameType, gameStarted, answer, roundTracker, incrementRoundTracker } from '../actions/actions'
+import { fetchAdditionRound, gameSelected, gameType, gameStarted, answer, roundTracker, incrementRoundTracker, additionGame, subtractionGame, multiplyGame } from '../actions/actions'
 
 import SubHeader from '../components/sub-header';
 import GameDashboard from './game-dashboard';
@@ -15,7 +15,13 @@ class GameContainer extends Component {
 
   handleGameSelection = (event) => {
       this.props.gameStarted()
-      this.props.gameType(event.target.id)
+      if (event.target.id === "Add") {
+        this.props.additionGame()
+      } else if (event.target.id === "Subtract") {
+        this.props.subtractionGame()
+      } else {
+        this.props.multiplyGame()
+      }
   }
 
   handleGameStart = () => {
@@ -109,7 +115,7 @@ const mapStateToProps = (state) => {
     console.log(state)
     return {
         round: state.round,
-        game: state.game,
+        game: state.gameType,
         level: state.level,
         gameSelected: state.gameSelected,
         score: state.incrementScore,
@@ -130,7 +136,10 @@ const mapDispatchToProps = (dispatch) => {
         gameStarted: gameStarted,
         answer: answer,
         fetchAdditionRound: fetchAdditionRound,
-        incrementRoundTracker: incrementRoundTracker
+        incrementRoundTracker: incrementRoundTracker,
+        additionGame: additionGame,
+        subtractionGame: subtractionGame,
+        multiplyGame: multiplyGame
         
     }, dispatch)
 }

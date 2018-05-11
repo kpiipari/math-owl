@@ -9,7 +9,7 @@ export function incrementLevel(state = 1, action) {
     }
 };
 
-export function setGameType(state = "", action) {
+export function gameType(state = "", action) {
     switch (action.type) {
         case 'ADDITION_GAME':
             return action.game
