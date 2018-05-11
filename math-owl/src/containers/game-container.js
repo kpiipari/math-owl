@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
-import { fetchAdditionRound, gameSelected, gameType, gameStarted, answer, roundTracker, incrementRoundTracker, incrementLevel, additionGame, subtractionGame, multiplyGame } from '../actions/actions'
+import { fetchAdditionRound, gameSelected, gameType, gameStarted, gameEnded, answer, roundTracker, incrementLevel, additionGame, subtractionGame, multiplyGame, addPlayer } from '../actions/actions'
 
 import SubHeader from '../components/sub-header';
 import GameDashboard from './game-dashboard';
@@ -49,21 +49,15 @@ class GameContainer extends Component {
   }
 
   onQuit = () => {
-    this.setState({
-        gameEnded: true
-    });
+    this.props.gameEnd(true)
   }
 
   handleNameChange = (event) => {
-    this.setprops({
-        player: event.target.value,
-    });
+    this.props.playerNameChange(event.target.value)
   }
 
   resetPlayerName = () => {
-    this.setprops({
-        player: '',
-    });
+    this.props.playerNameChange('')
   }
 
   handlePlayerNameSubmit = (event) => {
@@ -130,13 +124,16 @@ const mapDispatchToProps = (dispatch) => {
         gameType: gameType,
         gameSelection: gameSelected,
         gameStart: gameStarted,
+        gameEnd: gameEnded,
         answerSupply: answer,
         fetchAdditionRound: fetchAdditionRound,
-        incrementRoundTracker: incrementRoundTracker,
+        incrementRoundTracker: roundTracker,
         incrementLevel: incrementLevel,
         additionGame: additionGame,
         subtractionGame: subtractionGame,
-        multiplyGame: multiplyGame
+        multiplyGame: multiplyGame,
+        playerNameChange: addPlayer
+
         
     }, dispatch)
 }

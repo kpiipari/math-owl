@@ -123,14 +123,12 @@ export function addPlayer(player) {
 export function roundTracker() {
     return {
         type: types.ROUND_TRACKER,
-        roundTracker
     }
 }
 
 export function incrementRoundTracker() {
     return {
         type: types.INCREMENT_ROUND_TRACKER,
-        roundTracker
     }
 }
 

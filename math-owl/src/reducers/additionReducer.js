@@ -32,8 +32,9 @@ export function incrementScore(state = 0, action) {
     switch (action.type) {
         case 'INCREMENT_SCORE':
             return {
-                count: state.score + 1 
+                score: state.score + 1 
             }
+            
         default:
             return state
     }
@@ -120,14 +121,13 @@ export function addPlayer(state = "", action) {
     }
 }
 
+
 export function roundTracker(state = 1, action) {
     switch (action.type) {
         case 'ROUND_TRACKER':
-            return action.roundTracker
+            return { roundTracker: state.roundTracker }
         case 'INCREMENT_ROUND_TRACKER':
-        return {
-            roundTracker: state.roundTracker + 1 
-        }
+            return { ...state, roundTracker: state.roundTracker + 1 };
         default:
             return state
     }
