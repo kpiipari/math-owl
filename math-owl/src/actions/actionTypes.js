@@ -17,5 +17,6 @@ export const ANSWER_SUBMITTED_FAIL = 'ANSWER_SUBMITTED_FAIL';
 export const ROUND_FETCHED_SUCCESS = 'ROUND_FETCHED_SUCCESS';
 export const ROUND_FETCH_FAIL = 'ROUND_FETCH_FAIL';
 export const ANSWER = 'ANSWER';
+export const ROUND_TRACKER = 'ROUND_TRACKER';
 
 export const API_URL = process.env.REACT_APP_API_URL;

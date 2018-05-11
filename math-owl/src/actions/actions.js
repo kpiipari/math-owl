@@ -120,6 +120,13 @@ export function addPlayer(player) {
     }
 }
 
+export function roundTracker() {
+    return {
+        type: types.ROUND_TRACKER,
+        roundTracker
+    }
+}
+
 // Ascyn action creators
 
 export function fetchAdditionRound() {
