@@ -1,5 +1,5 @@
 import { combineReducers } from 'redux';
-import { round, incrementLevel, setGameType, incrementScore, time, gameStarted, gameSelected, roundEnded, gameEnded, roundFetchFail, answer, addPlayer } from './additionReducer';
+import { round, incrementLevel, setGameType, incrementScore, time, gameStarted, gameSelected, roundEnded, gameEnded, roundFetchFail, answer, addPlayer, roundTracker } from './additionReducer';
 
 const rootReducer = combineReducers({
     incrementLevel,
@@ -13,7 +13,8 @@ const rootReducer = combineReducers({
     gameEnded,
     roundFetchFail,
     answer,
-    addPlayer
+    addPlayer,
+    roundTracker
 });
 
 export default rootReducer;

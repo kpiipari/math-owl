@@ -127,6 +127,13 @@ export function roundTracker() {
     }
 }
 
+export function incrementRoundTracker() {
+    return {
+        type: types.INCREMENT_ROUND_TRACKER,
+        roundTracker
+    }
+}
+
 // Ascyn action creators
 
 export function fetchAdditionRound() {

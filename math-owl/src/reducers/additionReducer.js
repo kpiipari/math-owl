@@ -120,3 +120,16 @@ export function addPlayer(state = "", action) {
     }
 }
 
+export function roundTracker(state = 1, action) {
+    switch (action.type) {
+        case 'ROUND_TRACKER':
+            return action.roundTracker
+        case 'INCREMENT_ROUND_TRACKER':
+        return {
+            roundTracker: state.roundTracker + 1 
+        }
+        default:
+            return state
+    }
+}
+

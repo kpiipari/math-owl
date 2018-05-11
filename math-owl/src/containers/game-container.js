@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
-import { fetchAdditionRound, gameSelected, gameType, gameStarted, answer } from '../actions/actions'
+import { fetchAdditionRound, gameSelected, gameType, gameStarted, answer, roundTracker, incrementRoundTracker } from '../actions/actions'
 
 import SubHeader from '../components/sub-header';
 import GameDashboard from './game-dashboard';
@@ -29,6 +29,7 @@ class GameContainer extends Component {
   handleAnswerSubmit = (event) => {
     //console.log('Answer submitted:' + this.props.answer)
     event.preventDefault();
+    this.props.incrementRoundTracker()
     this.resetAnswerField();
   }
 
@@ -88,6 +89,7 @@ class GameContainer extends Component {
                 gameEnded={this.props.gameEnded}
                 roundEnded={this.props.roundEnded}
                 round={this.props.round}
+                roundTracker={this.props.roundTracker}
                 answer={this.props.answer}
                 handleChange={this.handleChange}
                 handleGameStart={this.handleGameStart}
@@ -117,6 +119,7 @@ const mapStateToProps = (state) => {
         gameEnded: state.gameEnded,
         roundEnded: state.roundEnded,
         answer: state.answer,
+        roundTracker: state.roundTracker
     };
 };
 
@@ -126,7 +129,8 @@ const mapDispatchToProps = (dispatch) => {
         gameSelected: gameSelected,
         gameStarted: gameStarted,
         answer: answer,
-        fetchAdditionRound: fetchAdditionRound
+        fetchAdditionRound: fetchAdditionRound,
+        incrementRoundTracker: incrementRoundTracker
         
     }, dispatch)
 }
