@@ -14,7 +14,7 @@ class GameContainer extends Component {
     }
 
   handleGameSelection = (event) => {
-      this.props.gameStarted()
+      this.props.gameSelection(true)
       if (event.target.id === "Add") {
         this.props.additionGame()
       } else if (event.target.id === "Subtract") {
@@ -25,7 +25,7 @@ class GameContainer extends Component {
   }
 
   handleGameStart = () => {
-    this.props.gameStarted()
+    this.props.gameStart(true)
   }
 
   handleChange = (event) => {
@@ -82,7 +82,7 @@ class GameContainer extends Component {
               <SubHeader 
                 game={this.props.game}
                 level={this.props.level}
-                gameMode={this.props.gameSelected}
+                gameSelected={this.props.gameSelected}
               />
               <GameDashboard 
                 game={this.props.game}
@@ -132,8 +132,8 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
     return bindActionCreators({
         gameType: gameType,
-        gameSelected: gameSelected,
-        gameStarted: gameStarted,
+        gameSelection: gameSelected,
+        gameStart: gameStarted,
         answer: answer,
         fetchAdditionRound: fetchAdditionRound,
         incrementRoundTracker: incrementRoundTracker,

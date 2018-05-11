@@ -7,7 +7,7 @@ import { Header, Grid, Segment } from 'semantic-ui-react';
 class SubHeader extends React.Component {
    
     render() {
-        if (this.props.gameMode) {
+        if (this.props.gameSelected) {
             return (
                 <Segment textAlign='center' inverted style={{ minHeight: 100, padding: '1em 1em' }} vertical>
                     <Grid centered columns={2}>
