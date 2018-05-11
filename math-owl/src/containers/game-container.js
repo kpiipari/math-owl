@@ -11,7 +11,7 @@ class GameContainer extends Component {
 
   componentDidMount() {
       this.props.fetchAdditionRound()
-  }
+    }
 
   handleGameSelection = (event) => {
       this.props.gameStarted()

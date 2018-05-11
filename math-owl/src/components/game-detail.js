@@ -1,25 +1,28 @@
 import React from 'react';
 import { Form, Button, Segment, Header } from 'semantic-ui-react';
 import GameOperand from './game-operand';
-import { bindActionCreators } from 'redux';
-import { connect } from 'react-redux';
-import { fetchAdditionRound } from '../actions/actions'
+
 
 class GameDetail extends React.Component {
 
-    componentDidMount() {
-        this.props.fetchAdditionRound()
-    }
-
-   roundJSON() {
-       let data = this.props.round
-       if (data.rounds !== undefined) {
-            let num1 = data.rounds.round1.num1
-            console.log(num1)
+   setVariableOne() {
+       const data = this.props.round
+       if (data.rounds === undefined) {
+            return ""
        } else {
-           let num1 = ""
+            return data.rounds.round1.num1
        }
-   }
+   } 
+
+   setVariableTwo() {
+        const data = this.props.round
+        if (data.rounds === undefined) {
+            return ""
+        } else {
+            return data.rounds.round1.num2
+        }
+    } 
+
 
     render() { 
 
@@ -36,7 +39,7 @@ class GameDetail extends React.Component {
                                     fontSize: '4em',
                                     fontWeight: 'normal',
                                     }}
-                                    > {this.roundJSON()} <GameOperand game={this.props.game}/> {this.roundJSON()} =
+                                    > {this.setVariableOne()} <GameOperand game={this.props.game}/> {this.setVariableTwo()} =
                                 </Header>
                             </label>
                             
@@ -54,11 +57,6 @@ class GameDetail extends React.Component {
     }
 }
 
-const mapDispatchToProps = (dispatch) => {
-    return {
-        fetchAdditionRound: () => dispatch(fetchAdditionRound())
-    };
-};
 
-export default connect(mapDispatchToProps)(GameDetail);
+export default GameDetail;
 
