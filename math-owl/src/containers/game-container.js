@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
-import { fetchAdditionRound, gameSelected, gameType, gameStarted, answer, roundTracker, incrementRoundTracker, additionGame, subtractionGame, multiplyGame } from '../actions/actions'
+import { fetchAdditionRound, gameSelected, gameType, gameStarted, answer, roundTracker, incrementRoundTracker, incrementLevel, additionGame, subtractionGame, multiplyGame } from '../actions/actions'
 
 import SubHeader from '../components/sub-header';
 import GameDashboard from './game-dashboard';
@@ -29,7 +29,7 @@ class GameContainer extends Component {
   }
 
   handleChange = (event) => {
-      this.props.answer(event.target.value)
+      this.props.answerSupply(event.target.value)
   }
 
   handleAnswerSubmit = (event) => {
@@ -40,16 +40,12 @@ class GameContainer extends Component {
   }
 
   resetAnswerField = () => {
-    this.setprops({
-        answer: '',
-    });
+    this.props.answerSupply('')
   }
 
   onContinue = () => {
-    this.setState({
-        level: this.props.level + 1,
-        gameStarted: false
-    });
+    this.props.incrementLevel()
+    this.props.gameStart(false)
   }
 
   onQuit = () => {
@@ -134,9 +130,10 @@ const mapDispatchToProps = (dispatch) => {
         gameType: gameType,
         gameSelection: gameSelected,
         gameStart: gameStarted,
-        answer: answer,
+        answerSupply: answer,
         fetchAdditionRound: fetchAdditionRound,
         incrementRoundTracker: incrementRoundTracker,
+        incrementLevel: incrementLevel,
         additionGame: additionGame,
         subtractionGame: subtractionGame,
         multiplyGame: multiplyGame
