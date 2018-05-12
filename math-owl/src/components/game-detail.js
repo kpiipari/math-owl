@@ -5,27 +5,18 @@ import GameOperand from './game-operand';
 
 class GameDetail extends React.Component {
 
-    
-
-    setVariableOne() {
+    setVariables() {
         let roundCount= this.props.roundCount;
-        console.log(roundCount)
         const data = this.props.round
         if (data.rounds === undefined) {
-                return ""
+            return ""
         } else {
-                return data.rounds.round1.num1
+            return {
+                num1: data["rounds"][`round${roundCount}`]["num1"],
+                num2: data["rounds"][`round${roundCount}`]["num2"]
+                }
         }
     } 
-
-    setVariableTwo() {
-            const data = this.props.round
-            if (data.rounds === undefined) {
-                return ""
-            } else {
-                return data.rounds.round1.num2
-            }
-        } 
 
 
     render() { 
@@ -43,7 +34,7 @@ class GameDetail extends React.Component {
                                     fontSize: '4em',
                                     fontWeight: 'normal',
                                     }}
-                                    > {this.setVariableOne()} <GameOperand game={this.props.game}/> {this.setVariableTwo()} =
+                                    > {this.setVariables().num1} <GameOperand game={this.props.game}/> {this.setVariables().num2} =
                                 </Header>
                             </label>
                             
