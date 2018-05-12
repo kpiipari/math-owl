@@ -5,23 +5,27 @@ import GameOperand from './game-operand';
 
 class GameDetail extends React.Component {
 
-   setVariableOne() {
-       const data = this.props.round
-       if (data.rounds === undefined) {
-            return ""
-       } else {
-            return data.rounds.round1.num1
-       }
-   } 
+    
 
-   setVariableTwo() {
+    setVariableOne() {
+        let roundCount= this.props.roundCount;
+        console.log(roundCount)
         const data = this.props.round
         if (data.rounds === undefined) {
-            return ""
+                return ""
         } else {
-            return data.rounds.round1.num2
+                return data.rounds.round1.num1
         }
     } 
+
+    setVariableTwo() {
+            const data = this.props.round
+            if (data.rounds === undefined) {
+                return ""
+            } else {
+                return data.rounds.round1.num2
+            }
+        } 
 
 
     render() { 

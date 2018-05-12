@@ -1,4 +1,20 @@
-export function incrementLevel(state = 1, action) {
+const initialState = {
+    level: 1,
+    game: "",
+    score: 0,
+    time: 0,
+    round: [],
+    gameSelected: false,
+    gameStarted: false,
+    roundEnded: false,
+    gameEnded: false,
+    answer: "",
+    player: "",
+    roundFetchFail: false,
+    roundCount: 1
+};
+
+export function incrementLevel(state = initialState.level, action) {
     switch (action.type) {
         case 'INCREMENT_LEVEL':
             return {
@@ -9,7 +25,7 @@ export function incrementLevel(state = 1, action) {
     }
 };
 
-export function gameType(state = "", action) {
+export function gameType(state = initialState.game, action) {
     switch (action.type) {
         case 'ADDITION_GAME':
             return action.game
@@ -31,16 +47,14 @@ export function gameType(state = "", action) {
 export function incrementScore(state = 0, action) {
     switch (action.type) {
         case 'INCREMENT_SCORE':
-            return {
-                score: state.score + 1 
-            }
+            return state + 1 
             
         default:
             return state
     }
 }
 
-export function time(state = 0, action) {
+export function time(state = initialState.time, action) {
     switch (action.type) {
         case 'TIME_FETCHED_SUCCESS':
             return action.time
@@ -49,7 +63,7 @@ export function time(state = 0, action) {
     }
 }
 
-export function gameStarted(state = false, action) {
+export function gameStarted(state = initialState.gameStarted, action) {
     switch (action.type) {
         case 'GAME_STARTED':
             return action.gameStarted
@@ -58,7 +72,7 @@ export function gameStarted(state = false, action) {
     }
 }
 
-export function gameSelected(state = false, action) {
+export function gameSelected(state = initialState.gameSelected, action) {
     switch (action.type) {
         case 'GAME_SELECTED':
             return action.gameSelected
@@ -67,7 +81,7 @@ export function gameSelected(state = false, action) {
     }
 }
 
-export function roundEnded(state = false, action) {
+export function roundEnded(state = initialState.roundEnded, action) {
     switch (action.type) {
         case 'ROUND_ENDED':
             return action.roundEnded
@@ -76,7 +90,7 @@ export function roundEnded(state = false, action) {
     }
 }
 
-export function gameEnded(state = false, action) {
+export function gameEnded(state = initialState.gameEnded, action) {
     switch (action.type) {
         case 'GAME_ENDED':
             return action.gameEnded
@@ -85,7 +99,7 @@ export function gameEnded(state = false, action) {
     }
 }
 
-export function round(state = [], action) {
+export function round(state = initialState.round, action) {
     switch (action.type) {
         case 'ROUND_FETCHED_SUCCESS':
             return Object.assign({}, state, action.round)
@@ -94,7 +108,7 @@ export function round(state = [], action) {
     }
 }
 
-export function roundFetchFail(state = false, action) {
+export function roundFetchFail(state = initialState.roundFetchFail, action) {
     switch (action.type) {
         case 'ROUND_FETCH_FAIL':
             return action.roundFetchFail
@@ -103,7 +117,7 @@ export function roundFetchFail(state = false, action) {
     }
 }
 
-export function answer(state = "", action) {
+export function answer(state = initialState.answer, action) {
     switch (action.type) {
         case 'ANSWER':
             return action.answer
@@ -112,7 +126,8 @@ export function answer(state = "", action) {
     }
 }
 
-export function addPlayer(state = "", action) {
+
+export function addPlayer(state = initialState.player, action) {
     switch (action.type) {
         case 'ADD_PLAYER':
             return action.player
@@ -122,12 +137,10 @@ export function addPlayer(state = "", action) {
 }
 
 
-export function roundTracker(state = 1, action) {
+export function roundCount(state = 1, action) {
     switch (action.type) {
-        case 'ROUND_TRACKER':
-            return { roundTracker: state.roundTracker }
         case 'INCREMENT_ROUND_TRACKER':
-            return { ...state, roundTracker: state.roundTracker + 1 };
+            return state + 1
         default:
             return state
     }

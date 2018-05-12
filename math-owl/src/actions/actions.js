@@ -126,7 +126,7 @@ export function roundTracker() {
     }
 }
 
-export function incrementRoundTracker() {
+export function incrementRoundCounter() {
     return {
         type: types.INCREMENT_ROUND_TRACKER,
     }

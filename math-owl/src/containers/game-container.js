@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
-import { fetchAdditionRound, gameSelected, gameType, gameStarted, gameEnded, answer, roundTracker, incrementLevel, additionGame, subtractionGame, multiplyGame, addPlayer } from '../actions/actions'
+import { fetchAdditionRound, gameSelected, gameType, gameStarted, gameEnded, answer, incrementRoundCounter, incrementLevel, additionGame, subtractionGame, multiplyGame, addPlayer } from '../actions/actions'
 
 import SubHeader from '../components/sub-header';
 import GameDashboard from './game-dashboard';
+
 
 
 class GameContainer extends Component {
@@ -34,8 +35,8 @@ class GameContainer extends Component {
 
   handleAnswerSubmit = (event) => {
     //console.log('Answer submitted:' + this.props.answer)
-    event.preventDefault();
-    this.props.incrementRoundTracker()
+    //event.preventDefault();
+    this.props.incrementRoundCounter();
     this.resetAnswerField();
   }
 
@@ -85,7 +86,7 @@ class GameContainer extends Component {
                 gameEnded={this.props.gameEnded}
                 roundEnded={this.props.roundEnded}
                 round={this.props.round}
-                roundTracker={this.props.roundTracker}
+                roundCount={this.props.roundCount}
                 answer={this.props.answer}
                 handleChange={this.handleChange}
                 handleGameStart={this.handleGameStart}
@@ -115,7 +116,7 @@ const mapStateToProps = (state) => {
         gameEnded: state.gameEnded,
         roundEnded: state.roundEnded,
         answer: state.answer,
-        roundTracker: state.roundTracker
+        roundCount: state.roundCount
     };
 };
 
@@ -127,7 +128,7 @@ const mapDispatchToProps = (dispatch) => {
         gameEnd: gameEnded,
         answerSupply: answer,
         fetchAdditionRound: fetchAdditionRound,
-        incrementRoundTracker: roundTracker,
+        incrementRoundCounter: incrementRoundCounter,
         incrementLevel: incrementLevel,
         additionGame: additionGame,
         subtractionGame: subtractionGame,

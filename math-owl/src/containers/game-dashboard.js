@@ -19,7 +19,7 @@ class GameDashboard extends React.Component {
             console.log(this.props.gameStarted)
             return (
                 <div>  
-                    <GameDetail game={this.props.game} score={this.props.score} round={this.props.round} roundTracker={this.props.roundTracker} handleAnswerSubmit={this.props.handleAnswerSubmit} answer={this.props.answer} handleChange={this.props.handleChange}/>
+                    <GameDetail game={this.props.game} score={this.props.score} round={this.props.round} roundCount={this.props.roundCount} handleAnswerSubmit={this.props.handleAnswerSubmit} answer={this.props.answer} handleChange={this.props.handleChange}/>
                     <RoundCount score={this.props.score}/>     
                 </div>
             );
