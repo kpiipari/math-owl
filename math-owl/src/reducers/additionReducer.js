@@ -14,6 +14,16 @@ const initialState = {
     roundCount: 1
 };
 
+export function score(state = initialState.score, action) {
+    switch (action.type) {
+        case 'ANSWER_SUBMITTED_SUCCESS':
+            return action.score
+        default:
+            return state
+            
+    }
+}
+
 export function incrementLevel(state = initialState.level, action) {
     switch (action.type) {
         case 'INCREMENT_LEVEL':

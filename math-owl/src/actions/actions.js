@@ -76,10 +76,10 @@ export function gameEnded(bool) {
     }
 }
 
-export function answerSubmittedSuccess(round) {
+export function answerSubmittedSuccess(score) {
     return {
         type: types.ANSWER_SUBMITTED_SUCCESS,
-        round
+        score
     }
 }
 
@@ -143,11 +143,17 @@ export function fetchAdditionRound() {
     }
 }
 
-export function submitAnswer(url, id) {
+export function submitAnswer(id, answer) {
     return dispatch => {
-        return fetch(`${API_URL}/addition/${id}`)
+        return fetch(`/api/addition/${id}`, {
+            method: "PUT",
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify( { user_answer: answer })
+        })
         .then(response => response.json())
-        .then(round => dispatch(answerSubmittedSuccess(round)))
+        .then(score => dispatch(answerSubmittedSuccess(score)))
         .catch(error => dispatch(roundFetchFail(true, error)))
     }
 }

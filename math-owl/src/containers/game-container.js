@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
-import { fetchAdditionRound, gameSelected, gameType, gameStarted, gameEnded, answer, incrementRoundCounter, incrementLevel, additionGame, subtractionGame, multiplyGame, addPlayer } from '../actions/actions'
+import { fetchAdditionRound, gameSelected, gameType, gameStarted, gameEnded, answer, incrementRoundCounter, incrementLevel, additionGame, subtractionGame, multiplyGame, addPlayer, submitAnswer } from '../actions/actions'
 
 import SubHeader from '../components/sub-header';
 import GameDashboard from './game-dashboard';
@@ -30,12 +30,14 @@ class GameContainer extends Component {
   }
 
   handleChange = (event) => {
-      this.props.answerSupply(event.target.value)
+      this.props.answerSupply(event.target.value) 
   }
 
   handleAnswerSubmit = (event) => {
-    //console.log('Answer submitted:' + this.props.answer)
-    //event.preventDefault();
+    event.preventDefault();
+    const id = this.props.round.id;
+    const answer = this.props.answer;
+    this.props.submitAnswer(id, answer);
     this.props.incrementRoundCounter();
     this.resetAnswerField();
   }
@@ -133,9 +135,8 @@ const mapDispatchToProps = (dispatch) => {
         additionGame: additionGame,
         subtractionGame: subtractionGame,
         multiplyGame: multiplyGame,
-        playerNameChange: addPlayer
-
-        
+        playerNameChange: addPlayer,
+        submitAnswer: submitAnswer     
     }, dispatch)
 }
 

@@ -18,7 +18,6 @@ class GameDetail extends React.Component {
         }
     } 
 
-
     render() { 
 
         return (
@@ -43,7 +42,7 @@ class GameDetail extends React.Component {
                             <input placeholder='Answer' type="text" value={this.props.answer} onChange={this.props.handleChange}/>
                         </Form.Field>
                         <Form.Field>
-                            <Button type='submit' size='big' onClick={this.props.handleAnswerFormSubmit}>Submit</Button>      
+                            <Button type='submit' size='big'>Submit</Button>      
                         </Form.Field>  
                     </Form>      
                 </Segment>
