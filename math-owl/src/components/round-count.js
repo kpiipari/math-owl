@@ -2,6 +2,7 @@ import React from 'react';
 import { Icon, Segment } from 'semantic-ui-react';
 
 class RoundCount extends React.Component {
+
     render() {
         return (
             <Segment textAlign='center' style={{ minHeight: 100 }} vertical>

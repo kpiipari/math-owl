@@ -16,8 +16,8 @@ const initialState = {
 
 export function score(state = initialState.score, action) {
     switch (action.type) {
-        case 'ANSWER_SUBMITTED_SUCCESS':
-            return action.score
+        case 'UPDATE_SCORE':
+           return action.score.score
         default:
             return state
             

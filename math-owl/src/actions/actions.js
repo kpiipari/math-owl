@@ -76,9 +76,9 @@ export function gameEnded(bool) {
     }
 }
 
-export function answerSubmittedSuccess(score) {
+export function updateScore(score) {
     return {
-        type: types.ANSWER_SUBMITTED_SUCCESS,
+        type: types.UPDATE_SCORE,
         score
     }
 }
@@ -153,7 +153,7 @@ export function submitAnswer(id, answer) {
             body: JSON.stringify( { user_answer: answer })
         })
         .then(response => response.json())
-        .then(score => dispatch(answerSubmittedSuccess(score)))
+        .then(score => dispatch(updateScore(score)))
         .catch(error => dispatch(roundFetchFail(true, error)))
     }
 }

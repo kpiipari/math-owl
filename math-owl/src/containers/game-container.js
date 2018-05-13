@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
-import { fetchAdditionRound, gameSelected, gameType, gameStarted, gameEnded, answer, incrementRoundCounter, incrementLevel, additionGame, subtractionGame, multiplyGame, addPlayer, submitAnswer } from '../actions/actions'
+import { fetchAdditionRound, gameSelected, gameType, gameStarted, gameEnded, answer, incrementRoundCounter, incrementLevel, additionGame, subtractionGame, multiplyGame, addPlayer, submitAnswer, updateScore } from '../actions/actions'
 
 import SubHeader from '../components/sub-header';
 import GameDashboard from './game-dashboard';
@@ -37,8 +37,10 @@ class GameContainer extends Component {
     event.preventDefault();
     const id = this.props.round.id;
     const answer = this.props.answer;
+    console.log(this.props.round.score)
     this.props.submitAnswer(id, answer);
     this.props.incrementRoundCounter();
+    //this.props.updateScore();
     this.resetAnswerField();
   }
 
@@ -111,7 +113,7 @@ const mapStateToProps = (state) => {
         game: state.gameType,
         level: state.level,
         gameSelected: state.gameSelected,
-        score: state.incrementScore,
+        score: state.score,
         time: state.time,
         player: state.player,
         gameStarted: state.gameStarted,
@@ -136,7 +138,8 @@ const mapDispatchToProps = (dispatch) => {
         subtractionGame: subtractionGame,
         multiplyGame: multiplyGame,
         playerNameChange: addPlayer,
-        submitAnswer: submitAnswer     
+        submitAnswer: submitAnswer,
+        updateScore: updateScore  
     }, dispatch)
 }
 
