@@ -149,8 +149,13 @@ export function roundCount(state = 1, action) {
     switch (action.type) {
         case 'INCREMENT_ROUND_TRACKER':
             return state + 1
+        case 'RESET_ROUND_COUNT':
+            return 1
         default:
             return state
     }
 }
+
+
+
 

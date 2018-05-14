@@ -132,6 +132,12 @@ export function incrementRoundCounter() {
     }
 }
 
+export function resetRoundCounter() {
+    return {
+        type: types.RESET_ROUND_COUNT,
+    }
+}
+
 // Ascyn action creators
 
 export function fetchAdditionRound() {
