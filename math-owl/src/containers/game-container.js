@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
-import { fetchAdditionRound, gameSelected, gameType, gameStarted, gameEnded, answer, incrementRoundCounter, incrementLevel, additionGame, subtractionGame, multiplyGame, addPlayer, submitAnswer, updateScore, roundEnded, resetRoundCounter } from '../actions/actions'
+import { fetchAdditionRound, gameSelected, gameType, gameStarted, gameEnded, answer, 
+    incrementRoundCounter, incrementLevel, additionGame, subtractionGame, multiplyGame, 
+    addPlayer, submitAnswer, updateScore, roundEnded, resetRoundCounter, resetScore } from '../actions/actions'
 
 import SubHeader from '../components/sub-header';
 import GameDashboard from './game-dashboard';
@@ -11,28 +13,28 @@ import GameDashboard from './game-dashboard';
 class GameContainer extends Component {
 
     componentDidMount() {
-        this.props.fetchAdditionRound()
+        this.props.fetchAdditionRound();
     }
 
     
 
     handleGameSelection = (event) => {
-        this.props.gameSelection(true)
+        this.props.gameSelection(true);
         if (event.target.id === "Add") {
-            this.props.additionGame()
+            this.props.additionGame();
         } else if (event.target.id === "Subtract") {
-            this.props.subtractionGame()
+            this.props.subtractionGame();
         } else {
-            this.props.multiplyGame()
+            this.props.multiplyGame();
         }
     }
 
     handleGameStart = () => {
-        this.props.gameStart(true)
+        this.props.gameStart(true);
     }
 
     handleChange = (event) => {
-        this.props.answerSupply(event.target.value) 
+        this.props.answerSupply(event.target.value);
     }
 
     handleAnswerSubmit = (event) => {
@@ -51,7 +53,7 @@ class GameContainer extends Component {
 
     endRound = () => {
         this.props.roundEnd(true);
-        this.props.resetRoundCounter()
+        this.props.resetRoundCounter();
     }
 
     resetAnswerField = () => {
@@ -59,9 +61,11 @@ class GameContainer extends Component {
     }
 
     onContinue = () => {
-        this.props.incrementLevel()
-        this.props.gameStart(false)
-        this.props.roundEnd(false)
+        this.props.incrementLevel();
+        this.props.gameStart(false);
+        this.props.roundEnd(false);
+        this.props.resetScore();
+        this.props.fetchAdditionRound();
     }
 
     onQuit = () => {
@@ -69,15 +73,15 @@ class GameContainer extends Component {
     }
 
     handleNameChange = (event) => {
-        this.props.playerNameChange(event.target.value)
+        this.props.playerNameChange(event.target.value);
     }
 
     resetPlayerName = () => {
-        this.props.playerNameChange('')
+        this.props.playerNameChange('');
     }
 
     handlePlayerNameSubmit = (event) => {
-        console.log('Player name and score submitted:' + this.props.player + this.props.score)
+        console.log('Player name and score submitted:' + this.props.player + this.props.score);
         event.preventDefault();
         this.resetPlayerName();
     }
@@ -155,7 +159,8 @@ const mapDispatchToProps = (dispatch) => {
         playerNameChange: addPlayer,
         submitAnswer: submitAnswer,
         updateScore: updateScore,
-        resetRoundCounter: resetRoundCounter
+        resetRoundCounter: resetRoundCounter,
+        resetScore: resetScore
     }, dispatch)
 }
 

@@ -138,6 +138,11 @@ export function resetRoundCounter() {
     }
 }
 
+export function resetScore() {
+    return {
+        type: types.RESET_SCORE,
+    }
+}
 // Ascyn action creators
 
 export function fetchAdditionRound() {

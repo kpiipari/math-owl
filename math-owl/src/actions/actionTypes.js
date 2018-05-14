@@ -20,5 +20,6 @@ export const ANSWER = 'ANSWER';
 export const ROUND_TRACKER = 'ROUND_TRACKER';
 export const INCREMENT_ROUND_TRACKER = 'INCREMENT_ROUND_TRACKER';
 export const RESET_ROUND_COUNT = 'RESET_ROUND_COUNT';
+export const RESET_SCORE = 'RESET_SCORE';
 
 export const API_URL = process.env.REACT_APP_API_URL;

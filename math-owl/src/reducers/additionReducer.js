@@ -18,13 +18,15 @@ export function score(state = initialState.score, action) {
     switch (action.type) {
         case 'UPDATE_SCORE':
            return action.score.score
+        case 'RESET_SCORE':
+            return initialState.score
         default:
             return state
             
     }
 }
 
-export function level(state = 1, action) {
+export function level(state = initialState.level, action) {
     switch (action.type) {
         case 'INCREMENT_LEVEL':
             return state + 1
@@ -145,12 +147,12 @@ export function addPlayer(state = initialState.player, action) {
 }
 
 
-export function roundCount(state = 1, action) {
+export function roundCount(state = initialState.roundCount, action) {
     switch (action.type) {
         case 'INCREMENT_ROUND_TRACKER':
             return state + 1
         case 'RESET_ROUND_COUNT':
-            return 1
+            return initialState.roundCount
         default:
             return state
     }
