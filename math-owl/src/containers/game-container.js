@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
-import { fetchAdditionRound, gameSelected, gameType, gameStarted, gameEnded, answer, incrementRoundCounter, incrementLevel, additionGame, subtractionGame, multiplyGame, addPlayer, submitAnswer, updateScore } from '../actions/actions'
+import { fetchAdditionRound, gameSelected, gameType, gameStarted, gameEnded, answer, incrementRoundCounter, incrementLevel, additionGame, subtractionGame, multiplyGame, addPlayer, submitAnswer, updateScore, roundEnded } from '../actions/actions'
 
 import SubHeader from '../components/sub-header';
 import GameDashboard from './game-dashboard';
@@ -41,11 +41,16 @@ class GameContainer extends Component {
     this.props.submitAnswer(id, answer);
     this.props.incrementRoundCounter();
     //this.props.updateScore();
+    //this.endRound()
     this.resetAnswerField();
   }
 
+  endRound = () => {
+    this.props.roundEnd(true);
+  }
+
   resetAnswerField = () => {
-    this.props.answerSupply('')
+    this.props.answerSupply('');
   }
 
   onContinue = () => {
@@ -97,6 +102,7 @@ class GameContainer extends Component {
                 handleGameSelection={this.handleGameSelection}
                 onContinue={this.onContinue}
                 onQuit={this.onQuit}
+                roundEnd={this.endRound}
                 handleNameChange={this.handleNameChange}
                 handlePlayerNameSubmit={this.handlePlayerNameSubmit}
                 handleAnswerSubmit={this.handleAnswerSubmit}
@@ -130,6 +136,7 @@ const mapDispatchToProps = (dispatch) => {
         gameSelection: gameSelected,
         gameStart: gameStarted,
         gameEnd: gameEnded,
+        roundEnd: roundEnded,
         answerSupply: answer,
         fetchAdditionRound: fetchAdditionRound,
         incrementRoundCounter: incrementRoundCounter,

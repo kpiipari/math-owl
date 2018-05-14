@@ -8,13 +8,17 @@ class GameDetail extends React.Component {
     setVariables() {
         let roundCount= this.props.roundCount;
         const data = this.props.round
+        console.log(data)
+        console.log(this.props.roundCount)
         if (data.rounds === undefined) {
             return ""
-        } else {
+        } else if (roundCount === 11) {
             return {
                 num1: data["rounds"][`round${roundCount}`]["num1"],
                 num2: data["rounds"][`round${roundCount}`]["num2"]
                 }
+        } else {
+            this.props.roundEnd(true);
         }
     } 
 
