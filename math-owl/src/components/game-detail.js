@@ -5,6 +5,10 @@ import GameOperand from './game-operand';
 
 class GameDetail extends React.Component {
 
+    componentDidMount() {
+        this.props.fetchAdditionRound();
+    }
+    
     setVariables() {
         let roundCount= this.props.roundCount;
         const data = this.props.round

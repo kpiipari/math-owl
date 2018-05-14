@@ -12,10 +12,6 @@ import GameDashboard from './game-dashboard';
 
 class GameContainer extends Component {
 
-    componentDidMount() {
-        this.props.fetchAdditionRound();
-    }
-
     
 
     handleGameSelection = (event) => {
@@ -118,6 +114,7 @@ class GameContainer extends Component {
                     handlePlayerNameSubmit={this.handlePlayerNameSubmit}
                     handleAnswerSubmit={this.handleAnswerSubmit}
                     setVariables={this.setVariables}
+                    fetchAdditionRound={this.props.fetchAdditionRound}
                 />
             </div>
         )
