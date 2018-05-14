@@ -25,7 +25,7 @@ class Results extends React.Component {
                         marginBottom: 0,
                         marginTop: '0.5em',
                         }}
-                    >Time: {this.props.time}
+                    >Congratulations!
                 </Header>
             </div>
         );
