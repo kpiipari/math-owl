@@ -44,7 +44,8 @@ class GameContainer extends Component {
         const roundCount = this.props.roundCount;
         this.resetAnswerField();
         if (roundCount === 10 ) {
-            this.endRound()
+            this.props.incrementLevel();
+            this.endRound();
         }  
     }
 
@@ -86,6 +87,7 @@ class GameContainer extends Component {
                     game={this.props.game}
                     level={this.props.level}
                     gameSelected={this.props.gameSelected}
+                    roundEnded={this.props.roundEnded}
                 />
                 <GameDashboard 
                     game={this.props.game}

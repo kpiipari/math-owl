@@ -24,12 +24,10 @@ export function score(state = initialState.score, action) {
     }
 }
 
-export function incrementLevel(state = initialState.level, action) {
+export function level(state = 1, action) {
     switch (action.type) {
         case 'INCREMENT_LEVEL':
-            return {
-                count: state.level + 1 
-            }
+            return state + 1
         default:
             return state
     }
