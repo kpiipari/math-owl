@@ -10,105 +10,109 @@ import GameDashboard from './game-dashboard';
 
 class GameContainer extends Component {
 
-  componentDidMount() {
-      this.props.fetchAdditionRound()
+    componentDidMount() {
+        this.props.fetchAdditionRound()
     }
 
-  handleGameSelection = (event) => {
-      this.props.gameSelection(true)
-      if (event.target.id === "Add") {
-        this.props.additionGame()
-      } else if (event.target.id === "Subtract") {
-        this.props.subtractionGame()
-      } else {
-        this.props.multiplyGame()
-      }
-  }
+    
 
-  handleGameStart = () => {
-    this.props.gameStart(true)
-  }
+    handleGameSelection = (event) => {
+        this.props.gameSelection(true)
+        if (event.target.id === "Add") {
+            this.props.additionGame()
+        } else if (event.target.id === "Subtract") {
+            this.props.subtractionGame()
+        } else {
+            this.props.multiplyGame()
+        }
+    }
 
-  handleChange = (event) => {
-      this.props.answerSupply(event.target.value) 
-  }
+    handleGameStart = () => {
+        this.props.gameStart(true)
+    }
 
-  handleAnswerSubmit = (event) => {
-    event.preventDefault();
-    const id = this.props.round.id;
-    const answer = this.props.answer;
-    console.log(this.props.round.score)
-    this.props.submitAnswer(id, answer);
-    this.props.incrementRoundCounter();
-    //this.props.updateScore();
-    //this.endRound()
-    this.resetAnswerField();
-  }
+    handleChange = (event) => {
+        this.props.answerSupply(event.target.value) 
+    }
 
-  endRound = () => {
-    this.props.roundEnd(true);
-  }
+    handleAnswerSubmit = (event) => {
+        event.preventDefault();
+        const id = this.props.round.id;
+        const answer = this.props.answer;
+        this.props.submitAnswer(id, answer);
+        this.props.incrementRoundCounter();
+        const roundCount = this.props.roundCount;
+        this.resetAnswerField();
+        if (roundCount === 10 ) {
+            this.endRound()
+        }  
+    }
 
-  resetAnswerField = () => {
-    this.props.answerSupply('');
-  }
+    endRound = () => {
+        this.props.roundEnd(true);
+    }
 
-  onContinue = () => {
-    this.props.incrementLevel()
-    this.props.gameStart(false)
-  }
+    resetAnswerField = () => {
+        this.props.answerSupply('');
+    }
 
-  onQuit = () => {
-    this.props.gameEnd(true)
-  }
+    onContinue = () => {
+        this.props.incrementLevel()
+        this.props.gameStart(false)
+    }
 
-  handleNameChange = (event) => {
-    this.props.playerNameChange(event.target.value)
-  }
+    onQuit = () => {
+        this.props.gameEnd(true)
+    }
 
-  resetPlayerName = () => {
-    this.props.playerNameChange('')
-  }
+    handleNameChange = (event) => {
+        this.props.playerNameChange(event.target.value)
+    }
 
-  handlePlayerNameSubmit = (event) => {
-      console.log('Player name and score submitted:' + this.props.player + this.props.score)
-      event.preventDefault();
-      this.resetPlayerName();
-  }
+    resetPlayerName = () => {
+        this.props.playerNameChange('')
+    }
 
-  render() {
-      return (
-          <div>
-              <SubHeader 
-                game={this.props.game}
-                level={this.props.level}
-                gameSelected={this.props.gameSelected}
-              />
-              <GameDashboard 
-                game={this.props.game}
-                level={this.props.level}
-                score={this.props.score}
-                time={this.props.time}
-                player={this.props.player}
-                gameSelected={this.props.gameSelected}
-                gameStarted={this.props.gameStarted}
-                gameEnded={this.props.gameEnded}
-                roundEnded={this.props.roundEnded}
-                round={this.props.round}
-                roundCount={this.props.roundCount}
-                answer={this.props.answer}
-                handleChange={this.handleChange}
-                handleGameStart={this.handleGameStart}
-                handleGameSelection={this.handleGameSelection}
-                onContinue={this.onContinue}
-                onQuit={this.onQuit}
-                roundEnd={this.endRound}
-                handleNameChange={this.handleNameChange}
-                handlePlayerNameSubmit={this.handlePlayerNameSubmit}
-                handleAnswerSubmit={this.handleAnswerSubmit}
-              />
-          </div>
-      )
+    handlePlayerNameSubmit = (event) => {
+        console.log('Player name and score submitted:' + this.props.player + this.props.score)
+        event.preventDefault();
+        this.resetPlayerName();
+    }
+
+    render() {
+        return (
+            <div>
+                <SubHeader 
+                    game={this.props.game}
+                    level={this.props.level}
+                    gameSelected={this.props.gameSelected}
+                />
+                <GameDashboard 
+                    game={this.props.game}
+                    level={this.props.level}
+                    score={this.props.score}
+                    time={this.props.time}
+                    player={this.props.player}
+                    gameSelected={this.props.gameSelected}
+                    gameStarted={this.props.gameStarted}
+                    gameEnded={this.props.gameEnded}
+                    roundEnded={this.props.roundEnded}
+                    round={this.props.round}
+                    roundCount={this.props.roundCount}
+                    answer={this.props.answer}
+                    handleChange={this.handleChange}
+                    handleGameStart={this.handleGameStart}
+                    handleGameSelection={this.handleGameSelection}
+                    onContinue={this.onContinue}
+                    onQuit={this.onQuit}
+                    roundEnd={this.endRound}
+                    handleNameChange={this.handleNameChange}
+                    handlePlayerNameSubmit={this.handlePlayerNameSubmit}
+                    handleAnswerSubmit={this.handleAnswerSubmit}
+                    setVariables={this.setVariables}
+                />
+            </div>
+        )
     }
 }
 
