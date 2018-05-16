@@ -12,8 +12,6 @@ import GameDashboard from './game-dashboard';
 
 class GameContainer extends Component {
 
-    
-
     handleGameSelection = (event) => {
         this.props.gameSelection(true);
         if (event.target.id === "Add") {
