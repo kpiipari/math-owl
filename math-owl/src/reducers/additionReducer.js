@@ -139,7 +139,7 @@ export function answer(state = initialState.answer, action) {
 }
 
 
-export function addPlayer(state = initialState.player, action) {
+export function player(state = initialState.player, action) {
     switch (action.type) {
         case 'ADD_PLAYER':
             return action.player
@@ -163,7 +163,9 @@ export function roundCount(state = initialState.roundCount, action) {
 export function playerId(state = initialState.player_id, action) {
     switch (action.type) {
         case 'ASSOCIATE_PLAYER_ID':
-            return action.player_id
+            return action.player.id
+        default:
+            return state
     }
 }
 
@@ -171,6 +173,8 @@ export function updatePlayerTotalScore(state = initialState.total_score, action)
     switch (action.type) {
         case 'UPDATE_TOTAL_SCORE':
             return action.total_score
+        default:
+            return state
     }
 }
 

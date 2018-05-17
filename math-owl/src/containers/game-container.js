@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import { fetchAdditionRound, gameSelected, gameType, gameStarted, gameEnded, answer, 
     incrementRoundCounter, incrementLevel, additionGame, subtractionGame, multiplyGame, 
     addPlayer, submitAnswer, updateScore, roundEnded, resetRoundCounter, resetScore, 
-    submitPlayerName, updateGameWithPlayerId } from '../actions/actions'
+    submitPlayerName, associatePlayerToGame } from '../actions/actions'
 
 import SubHeader from '../components/sub-header';
 import GameDashboard from './game-dashboard';
@@ -76,8 +76,15 @@ class GameContainer extends Component {
     }
 
     handlePlayerNameSubmit = (event) => {
-        console.log('Player name and score submitted:' + this.props.player + this.props.score);
         event.preventDefault();
+        const player = this.props.player
+        console.log(player)
+        this.props.submitPlayerName(player)
+        const player_id = this.props.player_id;
+        const id = this.props.round.id;
+        console.log(player_id)
+        console.log(id)
+        //this.props.updateGameWithPlayerId(id, player_id)
         this.resetPlayerName();
     }
 
@@ -135,8 +142,8 @@ const mapStateToProps = (state) => {
         roundEnded: state.roundEnded,
         answer: state.answer,
         roundCount: state.roundCount,
-        playerId: state.player_id,
-        total_score: state.total_score
+        playerId: state.playerId,
+        total_score: state.updatePlayerTotalScore
     };
 };
 
@@ -160,7 +167,7 @@ const mapDispatchToProps = (dispatch) => {
         resetRoundCounter: resetRoundCounter,
         resetScore: resetScore,
         submitPlayerName: submitPlayerName,
-        updateGameWithPlayerId: updateGameWithPlayerId
+        associatePlayerToGame: associatePlayerToGame
     }, dispatch)
 }
 

@@ -144,10 +144,10 @@ export function resetScore() {
     }
 }
 
-export function associatePlayerToGame(player_id) {
+export function associatePlayerToGame(player) {
     return {
         type: types.ASSOCIATE_PLAYER_ID,
-        player_id
+        player
     }
 }
 
@@ -191,10 +191,10 @@ export function submitPlayerName(name) {
             headers: {
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify( { name })
+            body: JSON.stringify( { name: name })
         })
         .then(response => response.json())
-        .then(player_id => dispatch(associatePlayerToGame(player_id)))
+        .then(player => dispatch(associatePlayerToGame(player)))
         .catch(error => dispatch(roundFetchFail(true, error)))
     }
 }
