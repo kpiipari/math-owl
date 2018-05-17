@@ -143,6 +143,21 @@ export function resetScore() {
         type: types.RESET_SCORE,
     }
 }
+
+export function associatePlayerToGame(player_id) {
+    return {
+        type: types.ASSOCIATE_PLAYER_ID,
+        player_id
+    }
+}
+
+export function updateTotalScore(total_score) {
+    return {
+        type: types.UPDATE_TOTAL_SCORE,
+        total_score
+    }
+}
+
 // Ascyn action creators
 
 export function fetchAdditionRound() {
@@ -169,22 +184,41 @@ export function submitAnswer(id, answer) {
     }
 }
 
-/* 
-
-export function receiveGame(json) {
-    return {type: types.RECEIVE_GAME, game: json.game};
-}
-
-export function fetchAdditionGame() {
+export function submitPlayerName(name) {
     return dispatch => {
-        return fetch(`${API_URL}/addition`, {
-            method: 'GET',
+        return fetch(`/api/player/`, {
+            method: "POST",
             headers: {
-                'Accept': 'application/json'
-            }
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify( { name })
         })
         .then(response => response.json())
-        .then(json => dispatch(receiveGame(json)));
-    };
+        .then(player_id => dispatch(associatePlayerToGame(player_id)))
+        .catch(error => dispatch(roundFetchFail(true, error)))
+    }
 }
-*/
+
+export function updateGameWithPlayerId(id, player_id) {
+    return dispatch => {
+        return fetch(`/api/addition/${id}`, {
+            method: "PUT",
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify( { player_id: player_id })
+        })
+        .then(response => response.json())
+        .then(player_id => dispatch(getTotalScore(player_id)))
+        .catch(error => dispatch(roundFetchFail(true, error)))
+    }
+}
+
+export function getTotalScore(player_id) {
+    return dispatch => {
+        return fetch(`/api/player/${player_id}`) 
+        .then(response => response.json())
+        .then(total_score => dispatch(updateTotalScore(total_score)))
+        .catch(error => dispatch(roundFetchFail(true, error)))
+    }
+}

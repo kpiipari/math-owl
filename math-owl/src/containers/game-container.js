@@ -3,7 +3,8 @@ import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import { fetchAdditionRound, gameSelected, gameType, gameStarted, gameEnded, answer, 
     incrementRoundCounter, incrementLevel, additionGame, subtractionGame, multiplyGame, 
-    addPlayer, submitAnswer, updateScore, roundEnded, resetRoundCounter, resetScore } from '../actions/actions'
+    addPlayer, submitAnswer, updateScore, roundEnded, resetRoundCounter, resetScore, 
+    submitPlayerName, updateGameWithPlayerId } from '../actions/actions'
 
 import SubHeader from '../components/sub-header';
 import GameDashboard from './game-dashboard';
@@ -133,7 +134,9 @@ const mapStateToProps = (state) => {
         gameEnded: state.gameEnded,
         roundEnded: state.roundEnded,
         answer: state.answer,
-        roundCount: state.roundCount
+        roundCount: state.roundCount,
+        playerId: state.player_id,
+        total_score: state.total_score
     };
 };
 
@@ -155,7 +158,9 @@ const mapDispatchToProps = (dispatch) => {
         submitAnswer: submitAnswer,
         updateScore: updateScore,
         resetRoundCounter: resetRoundCounter,
-        resetScore: resetScore
+        resetScore: resetScore,
+        submitPlayerName: submitPlayerName,
+        updateGameWithPlayerId: updateGameWithPlayerId
     }, dispatch)
 }
 

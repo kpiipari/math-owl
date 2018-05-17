@@ -11,7 +11,9 @@ const initialState = {
     answer: "",
     player: "",
     roundFetchFail: false,
-    roundCount: 1
+    roundCount: 1,
+    player_id: 0,
+    total_score: 0
 };
 
 export function score(state = initialState.score, action) {
@@ -158,6 +160,19 @@ export function roundCount(state = initialState.roundCount, action) {
     }
 }
 
+export function playerId(state = initialState.player_id, action) {
+    switch (action.type) {
+        case 'ASSOCIATE_PLAYER_ID':
+            return action.player_id
+    }
+}
+
+export function updatePlayerTotalScore(state = initialState.total_score, action) {
+    switch (action.type) {
+        case 'UPDATE_TOTAL_SCORE':
+            return action.total_score
+    }
+}
 
 
 
