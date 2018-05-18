@@ -159,9 +159,9 @@ export function updateTotalScore(total_score) {
 
 // Ascyn action creators
 
-export function fetchAdditionRound() {
+export function fetchAdditionRound(gameRoute) {
     return dispatch => {
-        return fetch(`/api/addition/new`) 
+        return fetch(`/api/${gameRoute}/new`) 
         .then(response => response.json())
         .then(round => dispatch(roundFetchedSuccess(round)))
         .catch(error => dispatch(roundFetchFail(true, error)))
