@@ -88,11 +88,8 @@ class GameContainer extends Component {
         event.preventDefault();
         const playerName = this.props.player;
         const gameID = this.props.round.id;
-        console.log(playerName)
-        console.log(gameID)
         this.props.submitPlayerName(playerName)
         .then(player => this.props.updateGameWithPlayerId(player.id, gameID))
-        .then()
         .then(this.resetPlayerName())
     }
     

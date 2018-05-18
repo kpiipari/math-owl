@@ -194,29 +194,9 @@ export function submitPlayerName(name) {
             body: JSON.stringify( { name: name })
         })
         .then(response => response.json())
-        /*.then(player => dispatch(associatePlayerToGame(player)))/*
-        /* updateGameWithPlayerId(player_id, id) should happen here*/ 
         .catch(error => dispatch(roundFetchFail(true, error)))
     }
 }
-
-/*export function submitPlayerNameAsync(name) {
-    return async (dispatch) => {
-        try {
-            const response = await fetch(`/api/player/`, {
-                method: "POST",
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify( { name: name })
-            }).json()
-            dispatch(associatePlayerToGame(player))
-            updateGameWithPlayerId(player.id)
-        } catch (error) {
-            dispatch(roundFetchFail(true, error))
-        }
-    }
-}*/
 
 export function updateGameWithPlayerId(player_id, id) {
     return dispatch => {
