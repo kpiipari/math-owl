@@ -1,5 +1,4 @@
 import * as types from './actionTypes';
-import { API_URL } from './actionTypes'
 
 export function incrementLevel() {
     return {

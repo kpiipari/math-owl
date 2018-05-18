@@ -23,5 +23,3 @@ export const RESET_ROUND_COUNT = 'RESET_ROUND_COUNT';
 export const RESET_SCORE = 'RESET_SCORE';
 export const ASSOCIATE_PLAYER_ID = 'ASSOCIATE_PLAYER_ID';
 export const UPDATE_TOTAL_SCORE = 'UPDATE_TOTAL_SCORE';
-
-export const API_URL = process.env.REACT_APP_API_URL;
