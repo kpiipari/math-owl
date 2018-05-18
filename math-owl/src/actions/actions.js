@@ -194,12 +194,31 @@ export function submitPlayerName(name) {
             body: JSON.stringify( { name: name })
         })
         .then(response => response.json())
-        .then(player => dispatch(associatePlayerToGame(player)))
+        /*.then(player => dispatch(associatePlayerToGame(player)))/*
+        /* updateGameWithPlayerId(player_id, id) should happen here*/ 
         .catch(error => dispatch(roundFetchFail(true, error)))
     }
 }
 
-export function updateGameWithPlayerId(id, player_id) {
+/*export function submitPlayerNameAsync(name) {
+    return async (dispatch) => {
+        try {
+            const response = await fetch(`/api/player/`, {
+                method: "POST",
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify( { name: name })
+            }).json()
+            dispatch(associatePlayerToGame(player))
+            updateGameWithPlayerId(player.id)
+        } catch (error) {
+            dispatch(roundFetchFail(true, error))
+        }
+    }
+}*/
+
+export function updateGameWithPlayerId(player_id, id) {
     return dispatch => {
         return fetch(`/api/addition/${id}`, {
             method: "PUT",
@@ -209,7 +228,7 @@ export function updateGameWithPlayerId(id, player_id) {
             body: JSON.stringify( { player_id: player_id })
         })
         .then(response => response.json())
-        .then(player_id => dispatch(getTotalScore(player_id)))
+        .then(game => dispatch(getTotalScore(game.player_id)))
         .catch(error => dispatch(roundFetchFail(true, error)))
     }
 }
@@ -218,7 +237,7 @@ export function getTotalScore(player_id) {
     return dispatch => {
         return fetch(`/api/player/${player_id}`) 
         .then(response => response.json())
-        .then(total_score => dispatch(updateTotalScore(total_score)))
+        .then(player => dispatch(updateTotalScore(player.total_score)))
         .catch(error => dispatch(roundFetchFail(true, error)))
     }
 }

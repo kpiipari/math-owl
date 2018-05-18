@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import { fetchAdditionRound, gameSelected, gameType, gameStarted, gameEnded, answer, 
     incrementRoundCounter, incrementLevel, additionGame, subtractionGame, multiplyGame, 
     addPlayer, submitAnswer, updateScore, roundEnded, resetRoundCounter, resetScore, 
-    submitPlayerName, associatePlayerToGame } from '../actions/actions'
+    submitPlayerName, associatePlayerToGame, updateGameWithPlayerId } from '../actions/actions'
 
 import SubHeader from '../components/sub-header';
 import GameDashboard from './game-dashboard';
@@ -75,19 +75,27 @@ class GameContainer extends Component {
         this.props.playerNameChange('');
     }
 
-    handlePlayerNameSubmit = (event) => {
+    /*handlePlayerNameSubmit = (event) => {
         event.preventDefault();
-        const player = this.props.player
-        console.log(player)
-        this.props.submitPlayerName(player)
-        const player_id = this.props.player_id;
-        const id = this.props.round.id;
-        console.log(player_id)
-        console.log(id)
-        //this.props.updateGameWithPlayerId(id, player_id)
-        this.resetPlayerName();
-    }
+        let playerName = this.props.player
+        let gameID = this.props.round.id
 
+        this.props.submitPlayerName(playerName);   
+        this.resetPlayerName();
+    }*/
+
+   handlePlayerNameSubmit = (event) => {
+        event.preventDefault();
+        const playerName = this.props.player;
+        const gameID = this.props.round.id;
+        console.log(playerName)
+        console.log(gameID)
+        this.props.submitPlayerName(playerName)
+        .then(player => this.props.updateGameWithPlayerId(player.id, gameID))
+        .then()
+        .then(this.resetPlayerName())
+    }
+    
     render() {
         return (
             <div>
@@ -167,7 +175,8 @@ const mapDispatchToProps = (dispatch) => {
         resetRoundCounter: resetRoundCounter,
         resetScore: resetScore,
         submitPlayerName: submitPlayerName,
-        associatePlayerToGame: associatePlayerToGame
+        associatePlayerToGame: associatePlayerToGame,
+        updateGameWithPlayerId: updateGameWithPlayerId
     }, dispatch)
 }
 
