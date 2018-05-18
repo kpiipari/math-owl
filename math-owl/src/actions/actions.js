@@ -168,9 +168,9 @@ export function fetchGameRound(gameRoute) {
     }
 }
 
-export function submitAnswer(id, answer) {
+export function submitAnswer(id, answer, gameRoute) {
     return dispatch => {
-        return fetch(`/api/addition/${id}`, {
+        return fetch(`/api/${gameRoute}/${id}`, {
             method: "PUT",
             headers: {
                 'Content-Type': 'application/json'
@@ -197,9 +197,9 @@ export function submitPlayerName(name) {
     }
 }
 
-export function updateGameWithPlayerId(player_id, id) {
+export function updateGameWithPlayerId(player_id, id, gameRoute) {
     return dispatch => {
-        return fetch(`/api/addition/${id}`, {
+        return fetch(`/api/${gameRoute}/${id}`, {
             method: "PUT",
             headers: {
                 'Content-Type': 'application/json'

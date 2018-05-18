@@ -36,12 +36,12 @@ class GameContainer extends Component {
         event.preventDefault();
         const id = this.props.round.id;
         const answer = this.props.answer;
-        this.props.submitAnswer(id, answer);
+        const gameType = this.props.game;
+        this.props.submitAnswer(id, answer, gameType);
         this.props.incrementRoundCounter();
         const roundCount = this.props.roundCount;
         this.resetAnswerField();
         if (roundCount === 10 ) {
-            //this.props.incrementLevel();
             this.endRound();
         }  
     }
@@ -60,7 +60,7 @@ class GameContainer extends Component {
         this.props.gameStart(false);
         this.props.roundEnd(false);
         this.props.resetScore();
-        this.props.fetchAdditionRound();
+        this.props.fetchGameRound();
     }
 
     onQuit = () => {
@@ -75,21 +75,13 @@ class GameContainer extends Component {
         this.props.playerNameChange('');
     }
 
-    /*handlePlayerNameSubmit = (event) => {
-        event.preventDefault();
-        let playerName = this.props.player
-        let gameID = this.props.round.id
-
-        this.props.submitPlayerName(playerName);   
-        this.resetPlayerName();
-    }*/
-
    handlePlayerNameSubmit = (event) => {
         event.preventDefault();
         const playerName = this.props.player;
         const gameID = this.props.round.id;
+        const gameType = this.props.game;
         this.props.submitPlayerName(playerName)
-        .then(player => this.props.updateGameWithPlayerId(player.id, gameID))
+        .then(player => this.props.updateGameWithPlayerId(player.id, gameID, gameType))
         .then(this.resetPlayerName())
     }
     
