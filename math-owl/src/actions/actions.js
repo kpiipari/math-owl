@@ -17,21 +17,21 @@ export function gameType(text) {
 export function additionGame() {
     return {
         type: types.ADDITION_GAME,
-        game: "Add"
+        game: "addition"
     }
 }
 
 export function subtractionGame() {
     return {
         type: types.SUBTRACTION_GAME,
-        game: "Subtract"
+        game: "subtraction"
     }
 }
 
 export function multiplyGame() {
     return {
         type: types.MULTIPLY_GAME,
-        game: "Multiply"
+        game: "multiply"
     }
 }
 
