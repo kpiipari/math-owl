@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
-import { fetchAdditionRound, gameSelected, gameType, gameStarted, gameEnded, answer, 
+import { fetchGameRound, gameSelected, gameType, gameStarted, gameEnded, answer, 
     incrementRoundCounter, incrementLevel, additionGame, subtractionGame, multiplyGame, 
     addPlayer, submitAnswer, updateScore, roundEnded, resetRoundCounter, resetScore, 
     submitPlayerName, associatePlayerToGame, updateGameWithPlayerId } from '../actions/actions'
@@ -125,7 +125,7 @@ class GameContainer extends Component {
                     handlePlayerNameSubmit={this.handlePlayerNameSubmit}
                     handleAnswerSubmit={this.handleAnswerSubmit}
                     setVariables={this.setVariables}
-                    fetchAdditionRound={this.props.fetchAdditionRound}
+                    fetchGameRound={this.props.fetchGameRound}
                 />
             </div>
         )
@@ -160,7 +160,7 @@ const mapDispatchToProps = (dispatch) => {
         gameEnd: gameEnded,
         roundEnd: roundEnded,
         answerSupply: answer,
-        fetchAdditionRound: fetchAdditionRound,
+        fetchGameRound: fetchGameRound,
         incrementRoundCounter: incrementRoundCounter,
         incrementLevel: incrementLevel,
         additionGame: additionGame,

@@ -159,7 +159,7 @@ export function updateTotalScore(total_score) {
 
 // Ascyn action creators
 
-export function fetchAdditionRound(gameRoute) {
+export function fetchGameRound(gameRoute) {
     return dispatch => {
         return fetch(`/api/${gameRoute}/new`) 
         .then(response => response.json())

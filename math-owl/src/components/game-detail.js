@@ -6,7 +6,7 @@ import GameOperand from './game-operand';
 class GameDetail extends React.Component {
 
     componentDidMount() {
-        this.props.fetchAdditionRound(this.props.game);
+        this.props.fetchGameRound(this.props.game);
     }
     
     setVariables() {
