@@ -2,6 +2,7 @@ import { combineReducers } from 'redux';
 import { round, level, gameType, score, time, gameStarted, 
     gameSelected, roundEnded, gameEnded, roundFetchFail, 
     answer, player, roundCount, playerId, updatePlayerTotalScore } from './gameReducer';
+import { leaderboard, leaderboardFetchFail } from './leaderboardReducer';
 
 const rootReducer = combineReducers({
     level,
@@ -18,7 +19,9 @@ const rootReducer = combineReducers({
     player,
     roundCount,
     playerId,
-    updatePlayerTotalScore
+    updatePlayerTotalScore,
+    leaderboard,
+    leaderboardFetchFail
 });
 
 export default rootReducer;
