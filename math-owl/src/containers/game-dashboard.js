@@ -11,9 +11,7 @@ import RoundCount from '../components/round-count';
 import { Grid, Segment } from 'semantic-ui-react';
 
 class GameDashboard extends React.Component {
-    
-
- 
+     
     render() {
         if (this.props.gameStarted && !this.props.roundEnded) {
             return (

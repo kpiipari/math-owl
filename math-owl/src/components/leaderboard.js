@@ -1,7 +1,18 @@
 import React from 'react'
 import { Header, Table, Segment, Grid } from 'semantic-ui-react'
 
-const Leaderboard = () => (
+
+class Leaderboard extends React.Component {
+    
+
+    leaderboardDetails() {
+        const data = this.props.players;
+        console.log(data)
+    } 
+
+    render() { 
+    return (
+
     <Segment textAlign='center' style={{ minHeight: 300, padding: '6em 8em' }} vertical>
         <Grid centered columns={2}>
             <Grid.Row verticalAlign='middle'>
@@ -25,7 +36,7 @@ const Leaderboard = () => (
                         </Header>
                         </Table.Cell>
                         <Table.Cell>
-                            Albert Einstein
+                            {this.leaderboardDetails()}
                         </Table.Cell>
                         <Table.Cell>
                             100
@@ -93,7 +104,7 @@ const Leaderboard = () => (
             </Grid.Row>
         </Grid>
     </Segment>
-
-)
+    )}    
+}
 
 export default Leaderboard;

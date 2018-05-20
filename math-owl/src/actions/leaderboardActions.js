@@ -1,7 +1,7 @@
-export function leaderboardFetchedSuccess(leaderboard) {
+export function leaderboardFetchedSuccess(players) {
     return {
         type: 'LEADERBOARD_FETCH_SUCCESS',
-        leaderboard
+        players
     }
 }
 
@@ -15,11 +15,11 @@ export function leaderboardFetchFail(bool, error) {
 
 // Ascyn action creators
 
-export function fetchLeaderboard(gameRoute) {
+export function fetchLeaderboard() {
     return dispatch => {
-        return fetch(`/api/${gameRoute}/new`) 
+        return fetch(`/api/player`) 
         .then(response => response.json())
-        .then(leaderboard => dispatch(leaderboardFetchedSuccess(leaderboard)))
+        .then(players => dispatch(leaderboardFetchedSuccess(players)))
         .catch(error => dispatch(leaderboardFetchFail(true, error)))
     }
 }
