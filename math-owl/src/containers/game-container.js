@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import { fetchGameRound, gameSelected, gameType, gameStarted, gameEnded, answer, 
     incrementRoundCounter, incrementLevel, additionGame, subtractionGame, multiplyGame, 
     addPlayer, submitAnswer, updateScore, roundEnded, resetRoundCounter, resetScore, 
-    submitPlayerName, associatePlayerToGame, updateGameWithPlayerId } from '../actions/actions'
+    submitPlayerName, associatePlayerToGame, updateGameWithPlayerId, nameSubmitted } from '../actions/actions'
 
 import SubHeader from '../components/sub-header';
 import GameDashboard from './game-dashboard';
@@ -83,6 +83,7 @@ class GameContainer extends Component {
         this.props.submitPlayerName(playerName)
         .then(player => this.props.updateGameWithPlayerId(player.id, gameID, gameType))
         .then(this.resetPlayerName())
+        .then(this.props.nameSubmitted(true))
     }
     
     render() {
@@ -165,7 +166,8 @@ const mapDispatchToProps = (dispatch) => {
         resetScore: resetScore,
         submitPlayerName: submitPlayerName,
         associatePlayerToGame: associatePlayerToGame,
-        updateGameWithPlayerId: updateGameWithPlayerId
+        updateGameWithPlayerId: updateGameWithPlayerId,
+        nameSubmitted: nameSubmitted
     }, dispatch)
 }
 

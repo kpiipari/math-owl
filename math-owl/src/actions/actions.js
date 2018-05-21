@@ -75,6 +75,13 @@ export function gameEnded(bool) {
     }
 }
 
+export function nameSubmitted(bool) {
+    return {
+        type: types.NAME_SUBMITTED,
+        nameSubmitted: bool
+    }
+}
+
 export function updateScore(score) {
     return {
         type: types.UPDATE_SCORE,
@@ -83,7 +90,6 @@ export function updateScore(score) {
 }
 
 export function answerSubmittedFail(bool, error) {
-    console.log(error)
     return {
         type: types.ANSWER_SUBMITTED_FAIL,
         answerSubmitFail: bool

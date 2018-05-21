@@ -8,12 +8,13 @@ const initialState = {
     gameStarted: false,
     roundEnded: false,
     gameEnded: false,
+    nameSubmitted: false,
     answer: "",
     player: "",
     roundFetchFail: false,
     roundCount: 1,
     player_id: 0,
-    total_score: 0
+    total_score: 0,
 };
 
 export function score(state = initialState.score, action) {
@@ -106,6 +107,15 @@ export function gameEnded(state = initialState.gameEnded, action) {
     switch (action.type) {
         case 'GAME_ENDED':
             return action.gameEnded
+        default:
+            return state
+    }
+}
+
+export function nameSubmitted(state = initialState.nameSubmitted, action) {
+    switch (action.type) {
+        case 'NAME_SUBMITTED':
+            return action.nameSubmitted
         default:
             return state
     }
