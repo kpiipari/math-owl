@@ -7,7 +7,7 @@ class RoundCount extends React.Component {
         return (
             <Segment textAlign='center' style={{ minHeight: 100 }} vertical>
                 {Array.from({ length: this.props.score}, (v, k) => <Icon key={k} name='star' color='yellow' size='huge'></Icon>)}
-                {Array.from({ length: 10 - this.props.score}, (v, k) => <Icon key={k} name='star' color='black' size='huge'></Icon>)}
+                {Array.from({ length: 10 - this.props.score}, (v, k) => <Icon key={k} name='star' color='white' size='huge'></Icon>)}
             </Segment>
         )
     }

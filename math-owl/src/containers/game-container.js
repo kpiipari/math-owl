@@ -82,8 +82,9 @@ class GameContainer extends Component {
         const gameType = this.props.game;
         this.props.submitPlayerName(playerName)
         .then(player => this.props.updateGameWithPlayerId(player.id, gameID, gameType))
+        .then(this.props.nameSubmit(true))
         .then(this.resetPlayerName())
-        .then(this.props.nameSubmitted(true))
+        
     }
     
     render() {
@@ -119,6 +120,7 @@ class GameContainer extends Component {
                     handleAnswerSubmit={this.handleAnswerSubmit}
                     setVariables={this.setVariables}
                     fetchGameRound={this.props.fetchGameRound}
+                    nameSubmitted={this.props.nameSubmitted}
                 />
             </div>
         )
@@ -141,7 +143,8 @@ const mapStateToProps = (state) => {
         answer: state.answer,
         roundCount: state.roundCount,
         playerId: state.playerId,
-        total_score: state.updatePlayerTotalScore
+        total_score: state.updatePlayerTotalScore,
+        nameSubmitted: state.nameSubmitted
     };
 };
 
@@ -167,7 +170,7 @@ const mapDispatchToProps = (dispatch) => {
         submitPlayerName: submitPlayerName,
         associatePlayerToGame: associatePlayerToGame,
         updateGameWithPlayerId: updateGameWithPlayerId,
-        nameSubmitted: nameSubmitted
+        nameSubmit: nameSubmitted
     }, dispatch)
 }
 

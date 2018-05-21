@@ -7,6 +7,7 @@ import GameDetail from '../components/game-detail';
 import Results from '../components/results';
 import EndGame from '../components/end-game';
 import RoundCount from '../components/round-count';
+import ThankYou from '../components/thank-you';
 
 import { Grid, Segment } from 'semantic-ui-react';
 
@@ -39,6 +40,14 @@ class GameDashboard extends React.Component {
                     </Grid>
                 </div>
             )
+        } else if (this.props.nameSubmitted) {
+            return (
+                <div>
+                    <Segment textAlign='center' style={{ minHeight: 20, padding: '3em 0em', marginLeft: '20%', marginRight: '20%' }} vertical>
+                        <ThankYou></ThankYou>
+                    </Segment>
+                </div>
+            )
         } else if (this.props.gameEnded){
             return (
                 <div>
@@ -47,7 +56,8 @@ class GameDashboard extends React.Component {
                     </Segment>
                 </div>
             )
-        } else {
+        } 
+        else {
             return (
                 <div>
                     <Grid centered columns={2}>
