@@ -19,6 +19,8 @@ class LeaderboardContainer extends Component {
             <Leaderboard 
               players={this.props.leaderboard}
               fetchLeaderboard={this.props.fetchLeaderboard}
+              loading={this.props.loading}
+              error={this.props.error}
             />
         </div>
       )
@@ -26,7 +28,11 @@ class LeaderboardContainer extends Component {
 }
 
 const mapStateToProps = (state) => {
-  return { leaderboard: state.leaderboard }
+  return { 
+    leaderboard: state.leaderboard,
+    loading: state.leaderboardLoading,
+    error: state.leaderboardFetchFail 
+  }
 }
 
 const mapDispatchToProps = (dispatch) => {
