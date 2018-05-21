@@ -29,7 +29,7 @@ class Home extends React.Component {
                         }}
                     />
                     <Link to="/games">
-                        <Button size='huge' color='purple'>
+                        <Button size='huge' color='orange'>
                             Get Started
                         </Button>
                     </Link>

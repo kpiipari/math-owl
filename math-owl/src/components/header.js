@@ -13,14 +13,14 @@ class Header extends React.Component {
             <div>
                 <Segment inverted>
                      <Menu inverted pointing secondary size='huge' fluid widths={3}>
-                        <Menu.Item name='mathOwl' active={activeItem === 'home'} onClick={this.handleItemClick}>
-                            <Link to='/'>Home</Link>
+                        <Menu.Item as={ Link} to='/' name='mathOwl' active={activeItem === 'home'} onClick={this.handleItemClick}>
+                           
                         </Menu.Item>
-                        <Menu.Item name='games' active={activeItem === 'games'} onClick={this.handleItemClick}>
-                            <Link to='/games'>Games</Link>
+                        <Menu.Item as={ Link} to='/games' name='games' active={activeItem === 'games'} onClick={this.handleItemClick}>
+                          
                         </Menu.Item>
-                        <Menu.Item name='leaderboard' active={activeItem === 'leaderboard'} onClick={this.handleItemClick}>
-                            <Link to='/leaderboard'>Leaderboard</Link>
+                        <Menu.Item as={ Link} to='/leaderboard' name='leaderboard' active={activeItem === 'leaderboard'} onClick={this.handleItemClick}>
+                            
                         </Menu.Item>
                     </Menu>
                 </Segment>
