@@ -1,5 +1,5 @@
 import React from 'react'
-import { Table, Segment, Grid } from 'semantic-ui-react'
+import { Table, Segment } from 'semantic-ui-react'
 
 
 class Leaderboard extends React.Component {
@@ -27,7 +27,7 @@ class Leaderboard extends React.Component {
             console.log(data)
             return (
                 data.map((player, index) =>
-                    <Table.Row>
+                    <Table.Row key={index}>
                         <Table.Cell>
                         {index + 1}
                         </Table.Cell>
@@ -44,24 +44,20 @@ class Leaderboard extends React.Component {
 
     render() { 
     return (
-        <Segment textAlign='center' style={{ minHeight: 300, padding: '6em 8em' }} vertical>
-            <Grid centered columns={2}>
-               
-                    <Table inverted>
-                        <Table.Header>
-                            <Table.Row>
-                                <Table.HeaderCell>Rank</Table.HeaderCell>
-                                <Table.HeaderCell>Name</Table.HeaderCell>
-                                <Table.HeaderCell>Score</Table.HeaderCell>
-                            </Table.Row>
-                        </Table.Header>
+        <Segment textAlign='center' style={{ minHeight: 300, padding: '6em 8em' }} vertical>    
+            <Table inverted>
+                <Table.Header>
+                    <Table.Row>
+                        <Table.HeaderCell>Rank</Table.HeaderCell>
+                        <Table.HeaderCell>Name</Table.HeaderCell>
+                        <Table.HeaderCell>Score</Table.HeaderCell>
+                    </Table.Row>
+                </Table.Header>
 
-                        <Table.Body>
-                            {this.generateLeaderboard()}
-                        </Table.Body>
-                    </Table>
-              
-            </Grid>
+                <Table.Body>
+                    {this.generateLeaderboard()}
+                </Table.Body>
+            </Table>
         </Segment>
     )}    
 }
