@@ -1,4 +1,5 @@
 import * as types from './actionTypes';
+const API_URL = process.env.REACT_APP_API_URL;
 
 export function incrementLevel() {
     return {
@@ -167,7 +168,7 @@ export function updateTotalScore(total_score) {
 
 export function fetchGameRound(gameRoute) {
     return dispatch => {
-        return fetch(`/api/${gameRoute}/new`) 
+        return fetch(`${API_URL}/api/${gameRoute}/new`) 
         .then(response => response.json())
         .then(round => dispatch(roundFetchedSuccess(round)))
         .catch(error => dispatch(roundFetchFail(true, error)))
@@ -176,7 +177,7 @@ export function fetchGameRound(gameRoute) {
 
 export function submitAnswer(id, answer, gameRoute) {
     return dispatch => {
-        return fetch(`/api/${gameRoute}/${id}`, {
+        return fetch(`${API_URL}/api/${gameRoute}/${id}`, {
             method: "PUT",
             headers: {
                 'Content-Type': 'application/json'
@@ -191,7 +192,7 @@ export function submitAnswer(id, answer, gameRoute) {
 
 export function submitPlayerName(name) {
     return dispatch => {
-        return fetch(`/api/player/`, {
+        return fetch(`${API_URL}/api/player/`, {
             method: "POST",
             headers: {
                 'Content-Type': 'application/json'
@@ -205,7 +206,7 @@ export function submitPlayerName(name) {
 
 export function updateGameWithPlayerId(player_id, id, gameRoute) {
     return dispatch => {
-        return fetch(`/api/${gameRoute}/${id}`, {
+        return fetch(`${API_URL}/api/${gameRoute}/${id}`, {
             method: "PUT",
             headers: {
                 'Content-Type': 'application/json'
@@ -220,7 +221,7 @@ export function updateGameWithPlayerId(player_id, id, gameRoute) {
 
 export function getTotalScore(player_id) {
     return dispatch => {
-        return fetch(`/api/player/${player_id}`) 
+        return fetch(`${API_URL}/api/player/${player_id}`) 
         .then(response => response.json())
         .then(player => dispatch(updateTotalScore(player.total_score)))
         .catch(error => dispatch(roundFetchFail(true, error)))
