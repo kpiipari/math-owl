@@ -1,3 +1,5 @@
+const API_URL = process.env.REACT_APP_API_URL;
+
 export function leaderboardFetchedSuccess(players) {
     return {
         type: 'LEADERBOARD_FETCH_SUCCESS',
@@ -25,7 +27,7 @@ export function fetchLeaderboard() {
     return dispatch => {
         dispatch(leaderboardLoading(true));
 
-        return fetch(`/api/player`) 
+        return fetch(`${API_URL}/api/player`) 
         .then(response => {
             if (!response.ok) {
                 throw Error(response.statusText);
